@@ -1,0 +1,19 @@
+---
+const { from } = Astro.props;
+const { to } = Astro.props;
+const { company } = Astro.props;
+const { position } = Astro.props;
+const { companyKind } = Astro.props;
+const { link } = Astro.props;
+const { doing } = Astro.props;
+---
+
+<span class="bigtext">
+    {to - from > 0 ? to + "-" + from : from | to} | {company}
+    <a href={link} target="_blank" style="text-decoration: none">↗</a>
+</span>
+<br />
+{position ? position + ", " : ""}{companyKind}
+{doing ? <br /> <span class="gray"> {doing} </span> : ""}
+<br />
+<br />
