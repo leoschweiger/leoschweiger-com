@@ -1,0 +1,287 @@
+@font-face {
+    font-family: "NotoSansKR";
+    src: url('../fonts/subset-NotoSansKR-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NotoSansKR";
+    src: url('../fonts/subset-NotoSansKR-SemiBold.woff2') format('woff2');
+    ;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NotoSansKR";
+    src: url('../fonts/subset-NotoSansKR-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+:root {
+    --cyan: #60f2fc;
+    --magenta: #ff54ab;
+    --yellow: #fff834;
+    --gray: rgb(131, 131, 131);
+}
+
+* {
+    font-family: "NotoSansKR";
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+p,
+input,
+select,
+li,
+label {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 1.5em;
+    max-width: 650px;
+}
+
+li {
+    margin: 0;
+    text-decoration: initial;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 700;
+    line-height: 1.3em;
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+
+    text-transform: lowercase;
+}
+
+h1 {
+    font-size: 5.5rem;
+    line-height: 5rem;
+    margin-bottom: 0.55em;
+}
+
+h2 {
+    font-size: 5.0rem;
+    --getintouchsize: 5rem;
+}
+
+.category svg {
+    width: calc(5rem * 2.8);
+}
+
+h3 {
+    font-size: 2.75rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+p a {
+    display: inline-block;
+    color: rgb(138, 138, 138);
+    text-decoration: underline;
+    text-underline-offset: .3rem;
+    text-decoration-thickness: .08rem;
+    text-decoration-color: rgb(171, 171, 171);
+    transform: translateY(0rem);
+    transition: .2s;
+}
+
+body.hasHover p a:hover {
+    transform: translateY(-.3rem);
+}
+
+a.button {
+    position: relative;
+    text-decoration: none;
+    transition: 0.14s;
+    top: .5rem;
+    left: 0;
+}
+
+body.hasHover a.button:hover {
+    transform: none;
+    left: .66rem;
+}
+
+.footer a {
+    position: relative;
+    color: var(--white);
+    text-decoration: none;
+    left: 0;
+    transition: 0.14s;
+    transform: none;
+}
+
+body.hasHover .footer a:hover {
+    transform: none;
+    left: .66rem;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+span.avoidwrap {
+    display: inline-block;
+}
+
+.category h2 {
+    text-align: center;
+}
+
+.bigtext {
+    font-weight: 600;
+    font-size: 1.3rem;
+    line-height: 2.0rem;
+}
+
+.dark .bigtext {
+    font-weight: 600;
+
+}
+
+.right {
+    text-align: right;
+}
+
+hr {
+    margin: 1rem 0;
+    color: rgba(0, 0, 0, 0);
+    opacity: 0;
+}
+
+.imageCaption {
+    position: relative;
+    font-weight: 600;
+    font-size: .9rem;
+    color: grey;
+    margin: 0;
+    top: 1.5rem;
+}
+
+header h1,
+header h3 {
+    position: absolute;
+    background-color: white;
+}
+
+header h1 {
+    left: calc(-1 * var(--margin));
+    top: calc(-2.55 * var(--margin));
+    padding: .5rem 1.5rem 1.35rem 0;
+    font-size: 6.0rem;
+    opacity: 1;
+    transition: .25s;
+}
+
+header h3 {
+    right: calc(-1 * var(--margin));
+    bottom: calc(-1.65 * var(--margin));
+    font-size: 2.4rem;
+    padding: .4rem 0rem 1.0rem 1.1rem;
+    opacity: 1;
+    transition: .25s;
+
+}
+
+.gray {
+    color: var(--gray)
+}
+
+/*mid*/
+@media only screen and (max-width: calc(750px)) {
+
+    header h1 {
+        font-size: 5.0rem;
+    }
+
+    header h3 {
+        font-size: 2.1rem;
+    }
+}
+
+/*phone*/
+@media only screen and (max-width: 566px) {
+
+    h1 {
+        font-size: 3.4rem;
+        line-height: 3.1rem;
+    }
+
+    h2 {
+        font-size: 4rem;
+        --getintouchsize: 4rem;
+    }
+
+    .category svg {
+        width: calc(3rem * 3.5);
+    }
+
+    h3 {
+        font-size: 2.35rem;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+    }
+
+    p a {
+        display: initial;
+    }
+
+    header h1 {
+        font-size: 3.2rem;
+        padding: .5rem 1.5rem 1.1rem 0;
+    }
+
+    header h3 {
+        font-size: 1.85rem;
+        padding: .35rem 0rem 0.9rem 1.0rem;
+    }
+}
+
+/* very wide */
+@media only screen and (min-width: calc(750px)) {
+
+    h1 {
+        font-size: 8rem;
+        line-height: 7rem;
+    }
+
+    h2 {
+        font-size: 7rem;
+    }
+
+    .getintouch h2 {
+        font-size: 5rem;
+        --getintouchsize: 5rem;
+    }
+
+    .category svg {
+        width: calc(7rem * 2.8);
+    }
+
+    h3 {
+        font-size: 3.2rem;
+    }
+}

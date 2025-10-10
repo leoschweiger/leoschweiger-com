@@ -1,0 +1,49 @@
+nav {
+    position: fixed;
+    left: var(--margin);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    height: 4rem;
+    z-index: 100;
+    width: calc(100vw - var(--margin) - var(--margin));
+    mix-blend-mode: difference !important;
+}
+
+nav * {
+    margin: 0;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: lowercase;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+nav li::before {
+    content: "";
+}
+
+nav li {
+    padding-left: 0
+}
+
+/*phone*/
+@media only screen and (max-width: 566px) {
+    nav {
+        background-color: var(--white);
+        mix-blend-mode: normal !important;
+    }
+
+    nav * {
+        color: var(--black);
+
+    }
+}

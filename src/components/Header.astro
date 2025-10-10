@@ -2,7 +2,7 @@
 import { mainTitle, staticUrl } from "../config/site.js";
 
 const title = Astro.props.title || "";
-const ogImage = Astro.props.image || "media/leo-schweiger-portrait.webp";
+const ogImage = Astro.props.image || "/media/leo-schweiger-portrait.webp";
 const ogDescription = Astro.props.ogDescription || "";
 const topId = Astro.props.topId || "";
 ---
@@ -14,6 +14,13 @@ const topId = Astro.props.topId || "";
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/src/styles/style.css" />
+    <link rel="stylesheet" href="/src/styles/typography.css" />
+    <link rel="stylesheet" href="/src/styles/nav.css" />
+    <link rel="stylesheet" href="/src/styles/form.css" />
+    <link rel="stylesheet" href="/src/styles/projects.css" />
+
     <title>
         {(title.length > 0 ? title + " / " : "") + mainTitle}
     </title>

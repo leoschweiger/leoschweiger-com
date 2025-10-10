@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import { aboutMeShort } from "../config/site.js";
 ---
 
-<Layout ogImage="media/leo-schweiger-portrait.webp" topId="home">
+<Layout topId="home">
     <header id="header">
         <a href="games#developed">
             <div id="headerVideoContainer">
@@ -21,44 +21,44 @@ import { aboutMeShort } from "../config/site.js";
         </p>
     </header>
 
-    <section class="cols c12 aftercat">
+    <section class="cols c12 aftercat" id="about">
         <h3>about</h3>
-        <p class="bigtext">
-            <a class="anchor" id="about"></a>
-            {aboutMeShort}
-            <br /><a class="button" href="about#me">more →</a>
-        </p>
+        <p
+            class="bigtext"
+            set:html={aboutMeShort +
+                ' <br /><a class="button" href="about#me">more →</a>'}
+        />
     </section>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const video = document.getElementById(
-                "videoPlayer",
-            ) as HTMLVideoElement | null;
-            const container = document.getElementById("headerVideoContainer");
-            const arrow = document.getElementById("headerarrow");
-            if (!video || !container || !arrow) return;
-
-            const sources = {
-                mobile: "/media/showreel_high.mp4",
-                desktop: "/media/showreel_wide.mp4",
-            };
-
-            const setVideoSrc = () => {
-                const mobile = matchMedia("(max-width: 768px)").matches;
-                const newSrc = mobile ? sources.mobile : sources.desktop;
-                if (!video.src.endsWith(newSrc)) video.src = newSrc;
-            };
-
-            window.addEventListener("scroll", () => {
-                arrow.style.opacity = window.scrollY < 60 ? "1" : "0";
-            });
-
-            video.addEventListener("loadeddata", () =>
-                container.classList.add("fade-in"),
-            );
-            window.addEventListener("resize", setVideoSrc);
-            setVideoSrc(); // initial setup
-        });
-    </script>
 </Layout>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const video = document.getElementById(
+            "videoPlayer",
+        ) as HTMLVideoElement | null;
+        const container = document.getElementById("headerVideoContainer");
+        const arrow = document.getElementById("headerarrow");
+        if (!video || !container || !arrow) return;
+
+        const sources = {
+            mobile: "/media/showreel_high.mp4",
+            desktop: "/media/showreel_wide.mp4",
+        };
+
+        const setVideoSrc = () => {
+            const mobile = matchMedia("(max-width: 768px)").matches;
+            const newSrc = mobile ? sources.mobile : sources.desktop;
+            if (!video.src.endsWith(newSrc)) video.src = newSrc;
+        };
+
+        window.addEventListener("scroll", () => {
+            arrow.style.opacity = window.scrollY < 60 ? "1" : "0";
+        });
+
+        video.addEventListener("loadeddata", () =>
+            container.classList.add("fade-in"),
+        );
+        window.addEventListener("resize", setVideoSrc);
+        setVideoSrc(); // initial setup
+    });
+</script>

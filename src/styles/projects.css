@@ -1,0 +1,136 @@
+.image {
+    position: relative;
+    width: 100%;
+    height: 478px;
+    max-height: 60svh;
+    transition: 0.25s ease;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.image video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: 0.25s ease;
+    pointer-events: none;
+    object-fit: cover;
+    margin: 0;
+}
+
+body.hasHover .image:hover video {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.imagekeepaspect {
+    width: 100%;
+    transition: 0.25s ease;
+    margin-top: 2rem !important;
+    margin-bottom: 1rem !important;
+    overflow: hidden;
+}
+
+.image img,
+.imagekeepaspect img {
+    background-color: rgb(99, 99, 99);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.25s ease;
+}
+
+.project-list-link {
+    color: var(--black);
+    text-decoration: none;
+    margin: 0;
+}
+
+.project-list-link .image {
+    margin: 0;
+    height: 0;
+    padding-bottom: calc(10 / 16 * 100%);
+    max-height: none;
+}
+
+.project-list-link .image img {
+    position: absolute;
+}
+
+.project-grid {
+    /* margin-left: calc(-50vw + 50%);
+    padding: 0 var(--margin);
+    width: calc(100vw - var(--margin) * 2); */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1rem;
+}
+
+video {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.project-list-link h3 {
+    margin: 0;
+    display: inline;
+    position: relative;
+    background-color: var(--white);
+    padding: 0rem 1.0rem .75rem 0;
+    left: -2rem;
+    z-index: 5;
+    height: 64px;
+    bottom: calc(-2.5rem);
+}
+
+body.hasHover .project-list-link:hover .image img {
+    transform: scale(1.1);
+}
+
+.project div:not(.image) {
+    margin-top: 1.5rem;
+    margin-bottom: .75rem;
+}
+
+.project {
+    min-height: calc(100svh - 326.15px - 374.4px - 100px);
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.video43 {
+    padding-bottom: 75% !important;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+@media only screen and (max-width: calc(850px)) {
+    .project-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .project-list-link h3 {
+        left: 0;
+    }
+
+    .image {
+        max-height: 40svh;
+    }
+}
