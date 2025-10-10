@@ -1,8 +1,15 @@
 ---
-import { mainTitle } from "../config/site.js";
+import { mainTitle, staticUrl } from "../config/site.js";
 
 const title = Astro.props.title || "";
+const ogImage = Astro.props.image || "media/leo-schweiger-portrait.webp";
+const ogDescription = Astro.props.ogDescription || "";
+const topId = Astro.props.topId || "";
 ---
+
+<script>
+    import "../scripts/hover.js";
+</script>
 
 <head>
     <meta charset="UTF-8" />
@@ -10,6 +17,11 @@ const title = Astro.props.title || "";
     <title>
         {(title.length > 0 ? title + " / " : "") + mainTitle}
     </title>
+
+    <meta property="og:url" content={staticUrl + Astro.url.pathname} />
+    <meta property="og:image" content={staticUrl + ogImage} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={ogDescription} />
 </head>
 
 <style>
@@ -32,3 +44,5 @@ const title = Astro.props.title || "";
         <li><a href="#contact">contact</a></li>
     </ul>
 </nav>
+
+<div class="nothing" id={topId}></div>

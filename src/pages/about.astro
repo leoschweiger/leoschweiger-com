@@ -4,77 +4,75 @@ import { aboutMeLong, links, resume } from "../config/site.js";
 import ExperienceEntry from "../components/ExperienceEntry.astro";
 ---
 
-<Layout ogImage="media/leo-schweiger-portrait.webp" topId="leo">
+<Layout title="about" ogImage="media/leo-schweiger-portrait.webp" topId="leo">
     <div class="space" id="leo"></div>
 
-    <section>
-        <h1>about me</h1>
+    <h1>about me</h1>
 
-        <p class="bigtext" set:html={aboutMeLong} />
+    <p class="bigtext" set:html={aboutMeLong} />
 
-        <div class="imagekeepaspect">
-            <img
-                src="media/leo-schweiger-portrait.webp"
-                alt="leo schweiger portrait"
-            />
-        </div>
+    <div class="imagekeepaspect">
+        <img
+            src="media/leo-schweiger-portrait.webp"
+            alt="leo schweiger portrait"
+        />
+    </div>
 
-        <hr />
+    <hr />
 
-        <div class="cols c12">
-            <h3 class="">experience</h3>
+    <div class="cols c12">
+        <h3 class="">experience</h3>
 
-            <ExperienceEntry
-                from={2025}
-                to={2025}
-                company="Second Stage Studio"
-                position="game programmer intern"
-                companyKind="indie game studio"
-                link="https://secondstage.studio/"
-                doing="developing a multiplayer game in defold"
-            />
+        <ExperienceEntry
+            from={2025}
+            to={2025}
+            company="Second Stage Studio"
+            position="game programmer intern"
+            companyKind="indie game studio"
+            link="https://secondstage.studio/"
+            doing="developing a multiplayer game in defold"
+        />
 
-            <ExperienceEntry
-                from={2024}
-                to={2024}
-                company="Buffactory Media GmbH"
-                position="ad creative developer intern"
-                companyKind="advertising agency"
-                link="https://buffactory.com/"
-                doing="designing web advertisements"
-            />
+        <ExperienceEntry
+            from={2024}
+            to={2024}
+            company="Buffactory Media GmbH"
+            position="ad creative developer intern"
+            companyKind="advertising agency"
+            link="https://buffactory.com/"
+            doing="designing web advertisements"
+        />
 
-            <ExperienceEntry
-                from={2022}
-                to={2022}
-                company="Target Group Publishing GmbH"
-                position="editorial designer intern"
-                companyKind="publishing agency"
-                link="http://www.target-group.at/"
-                doing="designing layouts for magazines and print advertisements"
-            />
+        <ExperienceEntry
+            from={2022}
+            to={2022}
+            company="Target Group Publishing GmbH"
+            position="editorial designer intern"
+            companyKind="publishing agency"
+            link="http://www.target-group.at/"
+            doing="designing layouts for magazines and print advertisements"
+        />
 
-            <ExperienceEntry
-                from={2021}
-                to={2021}
-                company="Mediasquad GmbH"
-                position="VR developer intern"
-                companyKind="studio for AR/VR apps"
-                link="https://www.msq.at/"
-                doing="developing a prototype for a VR puzzle game"
-            />
+        <ExperienceEntry
+            from={2021}
+            to={2021}
+            company="Mediasquad GmbH"
+            position="VR developer intern"
+            companyKind="studio for AR/VR apps"
+            link="https://www.msq.at/"
+            doing="developing a prototype for a VR puzzle game"
+        />
 
-            <ExperienceEntry
-                from={2020}
-                to={2020}
-                company="Spectrum Advertising Agency GmbH"
-                position="corporate-designer intern"
-                companyKind="marketing agency"
-                link="https://www.spectrum.at/"
-                doing="creating graphics and advertisements"
-            />
-        </div>
-    </section>
+        <ExperienceEntry
+            from={2020}
+            to={2020}
+            company="Spectrum Advertising Agency GmbH"
+            position="corporate-designer intern"
+            companyKind="marketing agency"
+            link="https://www.spectrum.at/"
+            doing="creating graphics and advertisements"
+        />
+    </div>
 
     <hr />
 

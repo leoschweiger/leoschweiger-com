@@ -1,18 +1,20 @@
 ---
-import { staticUrl } from "../config/site.js";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 const { title } = Astro.props;
 const { ogImage } = Astro.props;
+const { ogDescription } = Astro.props;
 const { topId } = Astro.props;
 ---
 
-<Header title={title} image={ogImage} topId={topId} />
+<Header
+    title={title}
+    image={ogImage}
+    topId={topId}
+    ogDescription={ogDescription}
+/>
 
-<meta property="og:url" content={staticUrl + Astro.url.pathname} />
-<meta property="og:image" content={staticUrl + ogImage} />
-
-<div class="nothing" id={topId}></div>
 <slot />
+
 <Footer />

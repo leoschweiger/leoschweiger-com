@@ -1,19 +1,23 @@
 ---
-import { links, resume } from "../config/site.js";
+import { email, links } from "../config/site.js";
 ---
+
+<script>
+    import "../scripts/copied.js";
+</script>
 
 <a
     class="getintouch createsCopyParticle preventSelect"
-    href="mailto:leo.schweiger＠icloud.com"
+    onclick={`navigator.clipboard.writeText("${email}")`}
 >
     <h2 class="touch1 createsCopyParticle">get in touch</h2>
-    <h2 class="touch2 createsCopyParticle">email me</h2>
+    <h2 class="touch2 createsCopyParticle">click to copy email</h2>
 </a>
 
 <div class="footer fullwidth dark" id="contact">
     <section class="cols c12">
         <div>
-            <p class="bigtext">impressum</p>
+            <p class="bigtext">email</p>
             <p>Leopold Schweiger</p>
             <p>Urstein Süd 5</p>
             <p>5412 Puch bei Hallein</p>
