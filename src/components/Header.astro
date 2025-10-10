@@ -1,19 +1,14 @@
 ---
+import { mainTitle } from "../config/site.js";
+
 const title = Astro.props.title || "";
-
-const about_me_long =
-    'I’m a student and game developer based in Salzburg, Austria, focused on creating effective, interesting and fun software. Since 2018, I have been working on projects ranging from utility tools to fully released games. My technical and artistic background allowed me to create multiple <a href="games#developed">game projects</a> already.';
-const about_me_short =
-    'I’m a game developer focused on creating interesting and fun software. My technical and artistic background allowed me to create multiple <a href="games#developed">games</a> already.';
-
-const main_title = "leo schweiger";
 ---
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-        {title.length > 0 ? title + " / leo schweiger" : "leo schweiger"}
+        {(title.length > 0 ? title + " / " : "") + mainTitle}
     </title>
 </head>
 
