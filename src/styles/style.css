@@ -341,7 +341,7 @@ body.hasHover .getintouch:hover .touch2 {
 .modal-content {
     display: block;
     max-width: calc(100vw - (var(--margin) * 2));
-    max-height: calc(100vh - (var(--margin) * 4))
+    max-height: calc(100vh - (var(--margin) * 4));
 }
 
 .close {

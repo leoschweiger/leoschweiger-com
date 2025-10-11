@@ -9,8 +9,8 @@
 @font-face {
     font-family: "NotoSansKR";
     src: url('../fonts/subset-NotoSansKR-SemiBold.woff2') format('woff2');
-    ;
     font-style: normal;
+    font-weight: 600;
     font-display: swap;
 }
 
@@ -21,9 +21,6 @@
     font-style: normal;
     font-display: swap;
 }
-
-
-
 
 :root {
     --cyan: #60f2fc;

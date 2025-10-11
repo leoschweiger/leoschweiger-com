@@ -9,7 +9,7 @@ const { doing } = Astro.props;
 ---
 
 <span class="bigtext">
-    {to - from > 0 ? from + "–" + to : from | to} {company}
+    {to - from > 0 ? from + "–" + to : from || to} {company}
     <a href={link} target="_blank" style="text-decoration: none">↗</a>
 </span>
 <br />
