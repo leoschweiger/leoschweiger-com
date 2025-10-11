@@ -202,7 +202,7 @@ header h3 {
 }
 
 .gray {
-    color: var(--gray)
+    color: var(--gray);
 }
 
 /*mid*/
