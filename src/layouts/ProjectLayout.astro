@@ -29,13 +29,13 @@ import Layout from "../layouts/Layout.astro";
 
         <slot />
 
-        {
+        { frontmatter.links && Object.keys(frontmatter.links).length > 0 && (
             Object.keys(frontmatter.links).map((link) => (
                 <a href={frontmatter.links[link].url} target="_blank">
                     {frontmatter.links[link].text}
                 </a>
                 <br />
             ))
-        }
+        )}
     </section>
 </Layout>
