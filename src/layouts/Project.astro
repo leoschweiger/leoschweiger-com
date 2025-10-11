@@ -25,10 +25,9 @@ const videoSrc = "/projects/" + id + "_clip.mp4"
         <h1>{frontmatter.title}</h1>
         <p class="bigtext">{frontmatter.description}</p>
 
-        <video src={videoSrc} title={frontmatter.title + " clip"} autoplay playsinline muted loop controls> </video>
+        <video src={videoSrc} title={frontmatter.title + " clip"} autoplay playsinline muted loop controls style="margin-bottom: 0"> </video>
 
-        <div id="slot-content" style="display:none;"> <slot /> </div>
-        <div id="processed-content" style="margin: 0"></div>
+        <div id="slot-content" style="margin: 0;"> <slot /> </div>
 
         {frontmatter.links && (
             <div class="cols c12">
@@ -74,20 +73,14 @@ const videoSrc = "/projects/" + id + "_clip.mp4"
         '<a $1 href="$2"$3 target="_blank">'
     );
 
-    // 5️⃣ Video handling (detect normal <video> or YouTube iframe links)
     html = html.replace(
-        /<video\s+[^>]*src="([^"]+)"[^>]*title="([^"]*)"[^>]*class="([^"]*)"[^>]*><\/video>/gi,
-        (_, src: string, title: string, cls: string) => {
-        title = escapeHtml(title);
-        cls = escapeHtml(cls);
-
-        if (src.includes("youtube.com") || src.includes("youtu.be")) {
-            return `<div class="video-wrapper image ${cls}"><iframe src="${src}?autoplay=1&mute=1" title="${title}" class="video-iframe" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen muted loop style="width: 100%; height: 100%;"></iframe></div>`;
-        } else {
-            return `<video src="${src}" title="${title}" class="${cls}" autoplay playsinline muted loop controls></video>`;
-        }
-        }
-    );
+        '<h2 id="">',
+        ''
+    )
+        html = html.replace(
+        '</h2>',
+        ''
+    )
 
     return html;
     }
@@ -101,10 +94,8 @@ const videoSrc = "/projects/" + id + "_clip.mp4"
         .replace(/'/g, "&#39;");
     }
 
-    const slotHTML = document.getElementById('slot-content')?.innerHTML;
-    const processedHtml = preprocessMarkdown(slotHTML || '');
-    const contentDiv = document.getElementById('processed-content');
-    if (contentDiv) {
-    contentDiv.innerHTML = processedHtml;
-    }
+    const slotHTML = document.getElementById('slot-content');
+    const processedHtml = preprocessMarkdown(slotHTML?.innerHTML || '');
+    slotHTML!.innerHTML = processedHtml;
+    console.log("Processed HTML:", processedHtml);
 </script>
