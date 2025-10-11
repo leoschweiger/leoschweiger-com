@@ -4,7 +4,8 @@ export const aboutMeShort =
     'I’m a game developer focused on creating interesting and fun software. My technical and artistic background allowed me to create multiple games already.';
 
 export const mainTitle = "leo schweiger";
-export const staticUrl = "https://leoschweiger.com";
+export const staticUrl = "https://leoschweiger-com-git-static-content-leoschweigers-projects.vercel.app";
+// export const staticUrl_ = "https://leoschweiger.com";
 
 export const resume = "/resume-leo-schweiger.pdf"
 export const email = "leo.schweiger@icloud.com"
