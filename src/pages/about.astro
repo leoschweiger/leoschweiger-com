@@ -1,0 +1,132 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Picture } from "astro:assets";
+import { aboutMeLong, aboutMeShort } from "../scripts/config.js";
+import ExperienceEntry from "../components/ExperienceEntry.astro";
+import portraitImage from "../media/portrait-leo-schweiger.webp";
+---
+
+<Layout
+    title="about"
+    topId="leo"
+    ogImage={portraitImage.src}
+    ogDesc={aboutMeShort}
+>
+    <section>
+        <div class="space"></div>
+
+        <h1>about me</h1>
+
+        <p class="bigtext" set:html={aboutMeLong} />
+
+        <div class="imagekeepaspect">
+            <Picture src={portraitImage} alt="leo schweiger portrait" />
+        </div>
+
+        <hr />
+
+        <div class="cols c12">
+            <h3 class="">experience</h3>
+
+            <p>
+                <ExperienceEntry
+                    from={2025}
+                    to={2025}
+                    company="Second Stage Studio"
+                    position="game programmer intern"
+                    companyKind="indie game studio"
+                    link="https://secondstage.studio/"
+                    doing="developing a multiplayer game in defold"
+                />
+                <ExperienceEntry
+                    from={2024}
+                    to={2024}
+                    company="Buffactory Media GmbH"
+                    position="ad creative developer intern"
+                    companyKind="advertising agency"
+                    link="https://buffactory.com/"
+                    doing="designing web advertisements"
+                />
+                <ExperienceEntry
+                    from={2022}
+                    to={2022}
+                    company="Target Group Publishing GmbH"
+                    position="editorial designer intern"
+                    companyKind="publishing agency"
+                    link="http://www.target-group.at/"
+                    doing="designing layouts for magazines and print advertisements"
+                />
+                <ExperienceEntry
+                    from={2021}
+                    to={2021}
+                    company="Mediasquad GmbH"
+                    position="VR developer intern"
+                    companyKind="studio for AR/VR apps"
+                    link="https://www.msq.at/"
+                    doing="developing a prototype for a VR puzzle game"
+                />
+                <ExperienceEntry
+                    from={2020}
+                    to={2020}
+                    company="Spectrum Advertising Agency GmbH"
+                    position="corporate-designer intern"
+                    companyKind="marketing agency"
+                    link="https://www.spectrum.at/"
+                    doing="creating graphics and advertisements"
+                />
+            </p>
+        </div>
+
+        <hr />
+
+        <div class="cols c12">
+            <h3 class="">education</h3>
+            <p>
+                <ExperienceEntry
+                    from={2023}
+                    to={2026}
+                    company="Salzburg University of Applied Sciences"
+                    position="bachelor program MultiMediaTechnology"
+                    companyKind=""
+                    link="https://www.fh-salzburg.ac.at/en/study/ct/multimediatechnology-bachelor"
+                    doing="game development and augmented reality"
+                />
+                <ExperienceEntry
+                    from={2017}
+                    to={2022}
+                    company="HTL Bau und Design"
+                    position=""
+                    companyKind="higher vocational school"
+                    link="https://www.htl-ibk.at/"
+                    doing="focusing on graphic-design and marketing"
+                />
+            </p>
+        </div>
+
+        <hr />
+
+        <div class="cols c12">
+            <h3 class="">skills</h3>
+            <div class="cols c111">
+                <p>
+                    <span class="bigtext">competence</span><br />
+                    game programming<br />
+                    shaders, rendering<br />
+                    tools, editor<br />
+                </p>
+                <p>
+                    <span class="bigtext">technologies</span><br />
+                    Unity 3D<br />
+                    Defold<br />
+                    Unreal Engine<br />
+                </p>
+                <p>
+                    <span class="bigtext">languages</span><br />
+                    C#, C++, Lua<br />
+                    Python, SQL<br />
+                    basic webstack<br />
+                </p>
+            </div>
+        </div>
+    </section>
+</Layout>

@@ -1,0 +1,51 @@
+---
+import { email, links } from "../scripts/config.js";
+
+const getInTouch = Astro.props.getInTouch || "true";
+---
+
+<script>
+    import "../scripts/copied.js";
+</script>
+
+{
+    getInTouch == "true" ? (
+        <section
+            class="getintouch createsCopyParticle preventSelect"
+            onclick={`navigator.clipboard.writeText("${email}")`}
+        >
+            <h2 class="touch1 createsCopyParticle">get in touch</h2>
+            <h2 class="touch2 createsCopyParticle">copy my email</h2>
+        </section>
+    ) : (
+        <div class="space" />
+    )
+}
+
+<div class="footer fullwidth dark" id="contact">
+    <section class="cols c12">
+        <div>
+            <p class="bigtext">impressum</p>
+            <p>Leopold Schweiger</p>
+            <p>Urstein Süd 5</p>
+            <p>5412 Puch bei Hallein</p>
+            <p>Austria</p>
+        </div>
+        <div>
+            <p class="bigtext">contact</p>
+            {
+                Object.keys(links).map((link) => (
+                    <p>
+                        <a
+                            href={links[link as keyof typeof links]}
+                            target="_blank"
+                            style="margin: 0"
+                        >
+                            {link}
+                        </a>
+                    </p>
+                ))
+            }
+        </div>
+    </section>
+</div>

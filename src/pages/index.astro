@@ -1,16 +1,65 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import { aboutMeLong, aboutMeShort } from "../scripts/config.js";
+import portraitImage from "../media/portrait-leo-schweiger.webp";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout topId="home" ogImage={portraitImage.src} ogDesc={aboutMeShort}>
+    <header id="header">
+        <a href="games#developed">
+            <div id="headerVideoContainer">
+                <video
+                    id="videoPlayer"
+                    aria-label="showreel video"
+                    autoplay
+                    loop
+                    muted
+                    playsinline></video>
+            </div>
+        </a>
+        <p id="headerarrow" class="">
+            <a href="#about">about <br />▾</a>
+        </p>
+    </header>
+
+    <section class="cols c12 aftercat" id="about">
+        <h3>about</h3>
+        <p
+            class="bigtext"
+            set:html={aboutMeLong +
+                ' <br /><a class="button" href="about#me">more →</a>'}
+        />
+    </section>
+</Layout>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const video = document.getElementById(
+            "videoPlayer",
+        ) as HTMLVideoElement | null;
+        const container = document.getElementById("headerVideoContainer");
+        const arrow = document.getElementById("headerarrow");
+        if (!video || !container || !arrow) return;
+
+        const sources = {
+            mobile: "/showreel_high.mp4",
+            desktop: "/showreel_wide.mp4",
+        };
+
+        const setVideoSrc = () => {
+            const mobile = matchMedia("(max-width: 750px)").matches;
+            const newSrc = mobile ? sources.mobile : sources.desktop;
+            if (!video.src.endsWith(newSrc)) video.src = newSrc;
+        };
+
+        window.addEventListener("scroll", () => {
+            arrow.style.opacity = window.scrollY < 60 ? "1" : "0";
+        });
+
+        video.addEventListener("loadeddata", () =>
+            container.classList.add("fade-in"),
+        );
+        window.addEventListener("resize", setVideoSrc);
+        setVideoSrc(); // initial setup
+    });
+</script>

@@ -1,0 +1,54 @@
+---
+import { mainTitle, staticUrl, resume } from "../scripts/config.js";
+
+const title = Astro.props.title || "";
+const ogImage = Astro.props.image;
+const ogDesc = Astro.props.ogDesc || "";
+const topId = Astro.props.topId || "";
+
+import "../styles/style.css";
+import "../styles/typography.css";
+import "../styles/nav.css";
+import "../styles/projects.css";
+---
+
+<script>
+    import "../scripts/hover.js";
+</script>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <title>
+        {(title.length > 0 ? title + " / " : "") + mainTitle}
+    </title>
+
+    <meta property="og:url" content={staticUrl + Astro.url.pathname} />
+    <meta property="og:title" content={title} />
+    {ogDesc && <meta property="og:description" content={ogDesc} />}
+    {ogImage && <meta property="og:image" content={staticUrl + ogImage} />}
+</head>
+
+<style>
+    #header-name::after {
+        content: " schweiger";
+    }
+
+    @media (max-width: 400px) {
+        #header-name::after {
+            content: "";
+        }
+    }
+</style>
+
+<nav>
+    <a href="/#home" id="header-name" translate="no">leo</a>
+    <ul>
+        <li><a href="/games#developed">games</a></li>
+        <li><a href="/about#leo">about</a></li>
+        <li><a href={resume} target="_blank">resume</a></li>
+    </ul>
+</nav>
+<div class="nothing" id={topId}></div>
