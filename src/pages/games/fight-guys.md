@@ -4,6 +4,7 @@ layout: ../../layouts/Project.astro
 title: "fight guys"
 date: "2025-06-01"
 description: "A physics-based auto battler with asynchronous multiplayer matches. Players build teams of up to five units that fight automatically using physics-driven interactions. Units can be modified with items, potions, and stat upgrades."
+
 links:
   - url: "https://leoschweiger.itch.io/fight-guys"
     text: "download"
@@ -11,9 +12,9 @@ links:
     text: "week one recap"
 ---
 
-![alt text](../../media/projects/fight-guys_0.webp)
-![alt text](../../media/projects/fight-guys_1_keep.webp)
-![alt text](../../media/projects/fight-guys_2.webp)
+![](../../media/projects/fight-guys_0.webp)
+![](../../media/projects/fight-guys_1_keep.webp)
+![](../../media/projects/fight-guys_2.webp)
 ---
 
 ### overview

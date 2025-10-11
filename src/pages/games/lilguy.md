@@ -4,8 +4,7 @@ layout: ../../layouts/Project.astro
 title: "lil’guy"
 date: "2024-06-01"
 description: "A fast-paced arcade slasher built entirely from scratch in C# using SFML. Players control the lil’guy, performing combos to defeat enemies, rack up points, and compete on the online leaderboard."
-image: "/projectdirectory/games/lilguy/thumb_lilguy.webp"
-video: "/projectdirectory/games/lilguy/clip_lilguy.mp4"
+
 links:
   - url: "https://leoschweiger.itch.io/lilguy"
     text: "download"
@@ -15,9 +14,9 @@ links:
     text: "trailer"
 ---
 
-![sword attack](/projectdirectory/games/lilguy/thumb_lilguy.webp)
-![beat up enemies](/projectdirectory/games/lilguy/lilguy 2.webp)
-![get huge combos](/projectdirectory/games/lilguy/lilguy 4.webp)
+![](../../media/projects/lilguy_0.webp)
+![](../../media/projects/lilguy_1.webp)
+![](../../media/projects/lilguy_2.webp)
 
 ---
 
