@@ -1,6 +1,10 @@
 ---
+import { Image } from "astro:assets";
+
 const project = Astro.props.project;
 const index = Astro.props.index;
+
+const id = project.frontmatter.title.replace(/ /g, "-").replace(/’/g, "");
 ---
 
 <a class="project-list-link" href={project.url}>
@@ -11,12 +15,12 @@ const index = Astro.props.index;
         onmouseout={"pauseVideo(" + index + ")"}
     >
         <img
-            src={project.frontmatter.image}
-            alt={project.frontmatter.title + " title image"}
+            src={"/projects/" + id + "_thumb.webp"}
+            alt={project.frontmatter.title + " thumbnail"}
         />
         <video
             id={"video-" + index}
-            src={project.frontmatter.video.replace(".mp4", "_preview.mp4")}
+            src={"/projects/" + id + "_clip_preview.mp4"}
             title={project.frontmatter.title + " preview"}
             loop
             muted
