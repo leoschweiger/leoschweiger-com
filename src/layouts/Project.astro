@@ -26,15 +26,84 @@ import Layout from "../layouts/Layout.astro";
         <video src={frontmatter.video} title={frontmatter.title + " clip"}
         ></video>
 
-        <slot />
+        <div id="slot-content" style="display:none;"> <slot /> </div>
+        <div id="processed-content"></div>
 
-        { frontmatter.links && Object.keys(frontmatter.links).length > 0 && (
-            Object.keys(frontmatter.links).map((link) => (
-                <a href={frontmatter.links[link].url} target="_blank">
-                    {frontmatter.links[link].text}
-                </a>
-                <br />
-            ))
+        {frontmatter.links && (
+            <div class="cols c12">
+                <h3>links</h3>
+                <p class="bigtext">
+                    {Object.keys(frontmatter.links).map((link) => (
+                    <a href={frontmatter.links[link].url} target="_blank">
+                        {frontmatter.links[link].text}
+                    </a>
+                    <br />
+                    ))}
+                </p>
+            </div>
         )}
+
     </section>
 </Layout>
+
+<script>
+    export function preprocessMarkdown(html: string) {
+    // 1️⃣ Wrap images containing "keep" in .imagekeepaspect
+    html = html.replace(
+        /<img([^>]*?)src="([^"]*keep[^"]*?)"([^>]*)>/gi,
+        '<div class="imagekeepaspect"><img class="zoomable"$1 src="$2"$3></div>'
+    );
+
+    // 2️⃣ Wrap all other images in .image (skip those already in imagekeepaspect)
+    html = html.replace(
+        /<img(?![^>]*keep)([^>]*)src="([^"]+)"([^>]*)>/gi,
+        '<div class="image"><img class="zoomable"$1 src="$2"$3></div>'
+    );
+
+    // 3️⃣ Replace a <h3> followed by a <p> with custom div layout
+    //    (like "### heading" + paragraph used to do)
+    html = html.replace(
+        /<h3[^>]*>(.*?)<\/h3>\s*<p[^>]*>(.*?)<\/p>/gms,
+        '<div class="cols c12"><h3>$1</h3><p class="bigtext">$2</p></div>'
+    );
+
+    // 4️⃣ Add target="_blank" to all <a> tags without it
+    html = html.replace(
+        /<a\s+(?![^>]*target=)([^>]*?)href="([^"]+)"([^>]*)>/gi,
+        '<a $1 href="$2"$3 target="_blank">'
+    );
+
+    // 5️⃣ Video handling (detect normal <video> or YouTube iframe links)
+    html = html.replace(
+        /<video\s+[^>]*src="([^"]+)"[^>]*title="([^"]*)"[^>]*class="([^"]*)"[^>]*><\/video>/gi,
+        (_, src: string, title: string, cls: string) => {
+        title = escapeHtml(title);
+        cls = escapeHtml(cls);
+
+        if (src.includes("youtube.com") || src.includes("youtu.be")) {
+            return `<div class="video-wrapper image ${cls}"><iframe src="${src}?autoplay=1&mute=1" title="${title}" class="video-iframe" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen muted loop style="width: 100%; height: 100%;"></iframe></div>`;
+        } else {
+            return `<video src="${src}" title="${title}" class="${cls}" autoplay playsinline muted loop controls></video>`;
+        }
+        }
+    );
+
+    return html;
+    }
+
+    function escapeHtml(str: string) {
+    return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    const slotHTML = document.getElementById('slot-content')?.innerHTML;
+    const processedHtml = preprocessMarkdown(slotHTML || '');
+    const contentDiv = document.getElementById('processed-content');
+    if (contentDiv) {
+    contentDiv.innerHTML = processedHtml;
+    }
+</script>
