@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
+layout: ../../layouts/Project.astro
 
 title: "quizshow"
 date: "2020-03-01"

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
+layout: ../../layouts/Project.astro
 
 title: "hopping race"
 date: "2021-11-01"

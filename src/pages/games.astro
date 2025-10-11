@@ -1,18 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-const allPosts = Object.values(
-    import.meta.glob("./games/*.md", { eager: true }),
+import ProjectList from "../components/ProjectList.astro";
+
+const projects = Object.values(
+    import.meta.glob(`./games/*.md`, { eager: true }),
 );
 ---
 
 <Layout title="games" topId="developed">
     <div class="space"></div>
-    <p>games</p>
-    {
-        allPosts.map((post: any) => (
-            <li>
-                <a href={post.url}>{post.frontmatter.title}</a>
-            </li>
-        ))
-    }
+    <ProjectList projects={projects} folder="games" />
 </Layout>

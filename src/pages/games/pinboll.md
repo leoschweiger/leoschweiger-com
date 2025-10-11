@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
+layout: ../../layouts/Project.astro
 
 title: "pinboll"
 date: "2025-02-14"

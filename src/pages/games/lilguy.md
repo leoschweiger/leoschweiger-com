@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
+layout: ../../layouts/Project.astro
 
 title: "lil’guy"
 date: "2024-06-01"

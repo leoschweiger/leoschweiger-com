@@ -1,0 +1,21 @@
+---
+import ProjectEntry from "./ProjectEntry.astro";
+
+const projects = Astro.props.projects;
+const folder = Astro.props.folder;
+---
+
+<section class="projectList">
+    <h1>{folder}</h1>
+    <div class="project-grid">
+        {
+            projects.map((project: any, index: number) => (
+                <ProjectEntry project={project} index={index} />
+            ))
+        }
+    </div>
+</section>
+
+<script>
+    import "../scripts/projectList.js";
+</script>

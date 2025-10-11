@@ -1,0 +1,26 @@
+---
+const project = Astro.props.project;
+const index = Astro.props.index;
+---
+
+<a class="project-list-link" href={project.url}>
+    <!-- <h3>{project.frontmatter.title}</h3> -->
+    <div
+        class="image"
+        onmouseover={"playVideo(" + index + ")"}
+        onmouseout={"pauseVideo(" + index + ")"}
+    >
+        <img
+            src={project.frontmatter.image}
+            alt={project.frontmatter.title + " title image"}
+        />
+        <video
+            id={"video-" + index}
+            src={project.frontmatter.video.replace(".mp4", "_preview.mp4")}
+            title={project.frontmatter.title + " preview"}
+            loop
+            muted
+        >
+        </video>
+    </div>
+</a>

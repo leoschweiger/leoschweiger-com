@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
+layout: ../../layouts/Project.astro
 
 title: "untitled music game"
 date: "2022-03-01"
