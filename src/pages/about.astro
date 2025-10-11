@@ -1,12 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Picture } from "astro:assets";
-import { aboutMeLong } from "../scripts/config.js";
+import { aboutMeLong, aboutMeShort } from "../scripts/config.js";
 import ExperienceEntry from "../components/ExperienceEntry.astro";
 import portraitImage from "../media/portrait-leo-schweiger.webp";
 ---
 
-<Layout title="about" topId="leo">
+<Layout
+    title="about"
+    topId="leo"
+    ogImage="/portrait-leo-schweiger.webp"
+    ogDesc={aboutMeShort}
+>
     <section>
         <div class="space"></div>
 

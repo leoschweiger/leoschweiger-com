@@ -1,11 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Picture } from "astro:assets";
+import image404 from "../media/404.webp";
 ---
 
 <Layout
     title="404"
-    ogImage="/src/media/404.webp"
-    ogDescription="page not found"
+    ogImage={image404.src}
+    ogDesc="page not found"
     getInTouch="false"
 >
     <style>
@@ -28,7 +30,7 @@ import Layout from "../layouts/Layout.astro";
     <div class="space"></div>
 
     <section>
-        <img src="/src/media/404.webp" width="50%" />
+        <Picture src={image404} alt="error 404" />
         <div class="smallspace"></div>
         <h3>error 404</h3>
         <p>this site was not found</p>

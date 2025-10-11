@@ -1,9 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { aboutMeLong } from "../scripts/config.js";
+import { aboutMeLong, aboutMeShort } from "../scripts/config.js";
 ---
 
-<Layout topId="home">
+<Layout
+    topId="home"
+    ogImage="/portrait-leo-schweiger.webp"
+    ogDesc={aboutMeShort}
+>
     <header id="header">
         <a href="games#developed">
             <div id="headerVideoContainer">

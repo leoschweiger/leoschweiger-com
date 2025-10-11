@@ -2,8 +2,8 @@
 import { mainTitle, staticUrl, resume } from "../scripts/config.js";
 
 const title = Astro.props.title || "";
-const ogImage = Astro.props.image || "/portrait-leo-schweiger.webp";
-const ogDescription = Astro.props.ogDescription || "";
+const ogImage = Astro.props.image;
+const ogDesc = Astro.props.ogDesc || "";
 const topId = Astro.props.topId || "";
 ---
 
@@ -26,9 +26,9 @@ const topId = Astro.props.topId || "";
     </title>
 
     <meta property="og:url" content={staticUrl + Astro.url.pathname} />
-    <meta property="og:image" content={staticUrl + ogImage} />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={ogDescription} />
+    {ogDesc && <meta property="og:description" content={ogDesc} />}
+    {ogImage && <meta property="og:image" content={staticUrl + ogImage} />}
 </head>
 
 <style>

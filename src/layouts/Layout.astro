@@ -4,16 +4,11 @@ import Footer from "../components/Footer.astro";
 
 const { title } = Astro.props;
 const { ogImage } = Astro.props;
-const { ogDescription } = Astro.props;
+const { ogDesc: ogDesc } = Astro.props;
 const { topId } = Astro.props;
 ---
 
-<Header
-    title={title}
-    image={ogImage}
-    topId={topId}
-    ogDescription={ogDescription}
-/>
+<Header title={title} image={ogImage} topId={topId} ogDesc={ogDesc} />
 
 <slot />
 
