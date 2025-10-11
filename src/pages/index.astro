@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { aboutMeShort } from "../config/site.js";
+import { aboutMeShort } from "../scripts/config.js";
 ---
 
 <Layout topId="home">
@@ -41,12 +41,12 @@ import { aboutMeShort } from "../config/site.js";
         if (!video || !container || !arrow) return;
 
         const sources = {
-            mobile: "/media/showreel_high.mp4",
-            desktop: "/media/showreel_wide.mp4",
+            mobile: "/src/media/showreel_high.mp4",
+            desktop: "/src/media/showreel_wide.mp4",
         };
 
         const setVideoSrc = () => {
-            const mobile = matchMedia("(max-width: 768px)").matches;
+            const mobile = matchMedia("(max-width: 750px)").matches;
             const newSrc = mobile ? sources.mobile : sources.desktop;
             if (!video.src.endsWith(newSrc)) video.src = newSrc;
         };

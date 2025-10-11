@@ -9,9 +9,9 @@ export const staticUrl = "https://leoschweiger.com";
 export const resume = "/resume-leo-schweiger.pdf"
 export const email = "leo.schweiger@icloud.com"
 export const emailDisplay = "leo.schweiger＠icloud.com"
+export const portrait = "/src/media/leo-schweiger-portrait.webp"
 export const links = {
     [emailDisplay]: `mailto:${email}`,
-    resume: resume,
     linkedin: "https://www.linkedin.com/in/leo-schweiger-256987339/",
     itch: "https://leoschweiger.itch.io/",
     github: "https://github.com/leoschweiger",

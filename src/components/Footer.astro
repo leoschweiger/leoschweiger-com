@@ -1,18 +1,26 @@
 ---
-import { email, links } from "../config/site.js";
+import { email, links } from "../scripts/config.js";
+
+const getInTouch = Astro.props.getInTouch || "true";
 ---
 
 <script>
     import "../scripts/copied.js";
 </script>
 
-<section
-    class="getintouch createsCopyParticle preventSelect"
-    onclick={`navigator.clipboard.writeText("${email}")`}
->
-    <h2 class="touch1 createsCopyParticle">get in touch</h2>
-    <h2 class="touch2 createsCopyParticle">click to copy email</h2>
-</section>
+{
+    getInTouch == "true" ? (
+        <section
+            class="getintouch createsCopyParticle preventSelect"
+            onclick={`navigator.clipboard.writeText("${email}")`}
+        >
+            <h2 class="touch1 createsCopyParticle">get in touch</h2>
+            <h2 class="touch2 createsCopyParticle">click to copy email</h2>
+        </section>
+    ) : (
+        <div class="space" />
+    )
+}
 
 <div class="footer fullwidth dark" id="contact">
     <section class="cols c12">
