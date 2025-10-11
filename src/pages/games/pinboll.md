@@ -14,8 +14,6 @@ inks:
     text: "trailer"
 ---
 
-<p class="imageCaption">(sound recommended)</p>
-
 ![](../../media/projects/pinboll_0_keep.webp)
 ![](../../media/projects/pinboll_1_keep.webp)
 ![](../../media/projects/pinboll_2_keep.webp)

@@ -10,6 +10,8 @@ links:
     text: "download"
   - url: "https://leoschweiger.itch.io/fight-guys/devlog/958323/fight-guys-021-patch-notes"
     text: "week one recap"
+  - url: "https://youtu.be/iWUF-No3fm8"
+    text: "gameplay video"
 ---
 
 ![](../../media/projects/fight-guys_0.webp)

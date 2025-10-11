@@ -1,6 +1,8 @@
 ---
 const { frontmatter } = Astro.props;
 import Layout from "../layouts/Layout.astro";
+const id = frontmatter.title.replace(/ /g, "-").replace(/’/g, "");
+const videoSrc = "/projects/" + id + "_clip.mp4"
 ---
 
 <Layout
@@ -23,11 +25,10 @@ import Layout from "../layouts/Layout.astro";
         <h1>{frontmatter.title}</h1>
         <p class="bigtext">{frontmatter.description}</p>
 
-        <video src={frontmatter.video} title={frontmatter.title + " clip"}
-        ></video>
+        <video src={videoSrc} title={frontmatter.title + " clip"} autoplay playsinline muted loop controls> </video>
 
         <div id="slot-content" style="display:none;"> <slot /> </div>
-        <div id="processed-content"></div>
+        <div id="processed-content" style="margin: 0"></div>
 
         {frontmatter.links && (
             <div class="cols c12">

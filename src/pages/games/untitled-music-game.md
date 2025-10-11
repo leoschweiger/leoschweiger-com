@@ -4,13 +4,7 @@ layout: ../../layouts/Project.astro
 title: "untitled music game"
 date: "2022-03-01"
 description: "In this untitled music game, inspired by various rhythm and bullet hell games, your goal is to survive until the end of the song while avoiding the rhythmical attack patterns."
-
-links:
-  - url: "https://www.reddit.com/r/IndieGaming/comments/tz6vl9/sound_i_made_a_musicbullethellgame_inspired_by/"
-    text: "short clip on Reddit"
 ---
-
-<p class="imageCaption">(sound recommended)</p>
 
 ![](../../media/projects/untitled-music-game_0_keep.webp)
 ![](../../media/projects/untitled-music-game_1_keep.webp)
