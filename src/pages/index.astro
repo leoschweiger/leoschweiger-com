@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { aboutMeShort } from "../scripts/config.js";
+import { aboutMeLong } from "../scripts/config.js";
 ---
 
 <Layout topId="home">
@@ -25,7 +25,7 @@ import { aboutMeShort } from "../scripts/config.js";
         <h3>about</h3>
         <p
             class="bigtext"
-            set:html={aboutMeShort +
+            set:html={aboutMeLong +
                 ' <br /><a class="button" href="about#me">more →</a>'}
         />
     </section>
