@@ -1,7 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { aboutMeLong, links, portrait, resume } from "../scripts/config.js";
+import { Picture } from "astro:assets";
+import { aboutMeLong } from "../scripts/config.js";
 import ExperienceEntry from "../components/ExperienceEntry.astro";
+import portraitImage from "../media/portrait-leo-schweiger.webp";
 ---
 
 <Layout title="about" topId="leo">
@@ -13,7 +15,7 @@ import ExperienceEntry from "../components/ExperienceEntry.astro";
         <p class="bigtext" set:html={aboutMeLong} />
 
         <div class="imagekeepaspect">
-            <img src={portrait} alt="leo schweiger portrait" />
+            <Picture src={portraitImage} alt="leo schweiger portrait" />
         </div>
 
         <hr />
