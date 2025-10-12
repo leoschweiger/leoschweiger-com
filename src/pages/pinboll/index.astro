@@ -1,0 +1,106 @@
+---
+import "../pinboll/style.css";
+import favicon from "../pinboll/media/favicon.ico";
+import illustration from "../pinboll/media/illustration.png";
+import logo from "../pinboll/media/logo.png";
+import bumperGif from "../pinboll/media/bumper_gif.gif";
+import { Image } from "astro:assets";
+---
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <link rel="icon" type="image/x-icon" href={favicon} />
+    <title>pinboll</title>
+</head>
+
+<body>
+    <div class="container">
+        <section>
+            <Image
+                src={illustration}
+                alt="pinboll illustration"
+                style="width: 66%; margin-bottom: 2rem; margin-top: -2rem;"
+            />
+
+            <Image src={logo} alt="pinboll logo" />
+        </section>
+        <section>
+            <p class="big center">
+                Play the classic pinball game you know and love – with a
+                creative spin.
+            </p>
+            <p>
+                Choose from over a dozen unique bumpers, each with its own
+                distinct behavior, and build your own custom pinball board.
+                Experiment with strategic placements to create powerful
+                synergies, or just throw them on the board and embrace the chaos
+                – mayhem is guaranteed either way.
+            </p>
+            <p class="center">
+                A game by <a
+                    href="https://portfolio.fh-salzburg.ac.at/users/florian-eberhard"
+                    target="_blank">Flo Eberhard</a
+                > and <a href="https://leoschweiger.com/" target="_blank"
+                    >Leo Schweiger</a
+                >
+            </p>
+        </section>
+
+        <!-- Download button -->
+        <section>
+            <a
+                class="button"
+                href="https://leoschweiger.itch.io/pinboll"
+                download>download here</a
+            >
+            <p class="subtitle">available for windows</p>
+            <iframe
+                class="video"
+                width="100%"
+                height="auto"
+                style="aspect-ratio: 16 / 9; border: 0;"
+                src="https://www.youtube.com/embed/1BEwpjsVrXw"
+                allowfullscreen
+            >
+            </iframe>
+        </section>
+
+        <!-- Other images -->
+        <section>
+            <Image
+                src={bumperGif}
+                alt="pinboll illustration"
+                style="width: 66%; margin: -4rem 0; position: relative;"
+            />
+        </section>
+
+        <!-- Table -->
+        <section>
+            <h1>leaderboard</h1>
+            <script
+                src="https://www.dreamlo.com/lb/67b1ef868f40bb024033a08c/js"
+                type="text/javascript"></script>
+            <script>
+                document
+                    .querySelectorAll(".dreamloLBTable td:nth-child(2)")
+                    .forEach((td) => {
+                        td.textContent = Number(td.textContent).toLocaleString(
+                            "de-DE",
+                        );
+                    });
+                document
+                    .querySelectorAll(".dreamloLBTable tr")
+                    .forEach((row, index) => {
+                        let cell = document.createElement(
+                            index === 0 ? "th" : "td",
+                        );
+                        cell.textContent = index === 0 ? "#" : String(index);
+                        row.insertBefore(cell, row.firstChild);
+                    });
+            </script>
+        </section>
+    </div>
+</body>
