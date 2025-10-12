@@ -6,9 +6,9 @@ date: "2022-03-01"
 description: "In this untitled music game, inspired by various rhythm and bullet hell games, your goal is to survive until the end of the song while avoiding the rhythmical attack patterns."
 ---
 
-![](../../media/projects/untitled-music-game_0_keep.webp)
-![](../../media/projects/untitled-music-game_1_keep.webp)
-![](../../media/projects/untitled-music-game_2_keep.webp)
+![](../../media/projects/untitled-music-game_0.webp)
+![](../../media/projects/untitled-music-game_1.webp)
+![](../../media/projects/untitled-music-game_2.webp)
 
 ---
 
