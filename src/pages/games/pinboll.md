@@ -14,9 +14,9 @@ inks:
     text: "trailer"
 ---
 
-![](../../media/projects/pinboll_0_keep.webp)
-![](../../media/projects/pinboll_1_keep.webp)
-![](../../media/projects/pinboll_2_keep.webp)
+![](../../media/projects/pinboll_0.webp)
+![](../../media/projects/pinboll_1.webp)
+![](../../media/projects/pinboll_2.webp)
 
 ---
 

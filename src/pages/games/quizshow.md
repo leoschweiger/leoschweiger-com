@@ -6,9 +6,9 @@ date: "2020-03-01"
 description: "Inspired by TV trivia shows, this project offers an online experience designed for interactive quiz show evenings with friends."
 ---
 
-![](../../media/projects/quizshow_0_keep.webp)
-![](../../media/projects/quizshow_1_keep.webp)
-![](../../media/projects/quizshow_2_keep.webp)
+![](../../media/projects/quizshow_0.webp)
+![](../../media/projects/quizshow_1.webp)
+![](../../media/projects/quizshow_2.webp)
 
 ---
 
