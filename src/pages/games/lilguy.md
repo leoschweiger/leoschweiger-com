@@ -8,7 +8,7 @@ description: "A fast-paced arcade slasher built entirely from scratch in C# usin
 links:
   - url: "https://leoschweiger.itch.io/lilguy"
     text: "download"
-  - url: "https://www.tinyurl.com/playlilguy"
+  - url: "/lilguy"
     text: "leaderboard"
   - url: "https://www.youtube.com/watch?v=A4yoMASiEaw"
     text: "trailer"

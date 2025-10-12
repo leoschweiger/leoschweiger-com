@@ -1,0 +1,177 @@
+/* Define CSS variables for colors */
+:root {
+    --col-black: #435058;
+    --col-white: #ffeee2;
+    --col-red: #f9627d;
+    --col-green: #83b692;
+    --col-yellow: #ffcb77;
+}
+
+@font-face {
+    font-family: "NotoSansKR";
+    src: url('/fonts/subset-NotoSansKR-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NotoSansKR";
+    src: url('/fonts/subset-NotoSansKR-SemiBold.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NotoSansKR";
+    src: url('/fonts/subset-NotoSansKR-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    --stripe-color-1: var(--col-yellow);
+    --stripe-color-2: #fcc46b;
+    --stripe-width: 15px;
+
+    font-family: 'NotoSansKR', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    background: repeating-linear-gradient(-45deg,
+    var(--stripe-color-1),
+    var(--stripe-color-1) var(--stripe-width),
+    var(--stripe-color-2) var(--stripe-width),
+    var(--stripe-color-2) calc(var(--stripe-width) * 2));
+    background-attachment: fixed;
+    color: var(--col-black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 1rem 0;
+    width: 100vw;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.container {
+    background-color: var(--col-white);
+    max-width: 500px;
+    padding: 40px 80px;
+    text-align: center;
+    border-radius: 2rem;
+    margin: 1rem;
+    border-style: solid;
+    border-width: .4rem;
+    border-color: var(--col-black);
+}
+
+section {
+    margin: 3rem 0;
+}
+
+.big {
+    font-size: 23px;
+    font-weight: 900;
+}
+
+.center {
+    text-align: center;
+}
+
+p {
+    text-align: left;
+    position: relative;
+    z-index: 2;
+}
+
+img {
+    position: relative;
+    width: 80%;
+    height: auto;
+    z-index: 0;
+}
+
+a {
+    display: inline-block;
+    color: inherit;
+    text-underline-offset: .3rem;
+    transition: transform 0.15s ease;
+}
+
+.button {
+    font-weight: var(--col-black);
+    background-color: var(--col-red);
+    padding: .5rem 2rem;
+    font-size: 25px;
+    text-decoration: none;
+    color: white;
+    border-radius: .5rem;
+    border: solid;
+    border-width: .2rem .2rem .4rem .2rem;
+    border-color: var(--col-black);
+}
+
+a:hover {
+    transform: translateY(-.3rem);
+}
+
+a:active {
+    transform: translateY(.1rem);
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 15px;
+    margin-top: .25rem;
+}
+
+.dreamloLBTable {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+}
+
+.dreamloLBTable th {
+    display: none;
+}
+
+.dreamloLBTable td {
+    border-bottom: 1.5px solid;
+    border-bottom-color: #43505833;
+    margin: 0;
+    padding: .5rem;
+}
+
+.dreamloLBTable td:nth-child(1) {
+    /* Name column */
+    text-align: right;
+}
+
+.dreamloLBTable td:nth-child(2) {
+    /* Name column */
+    text-align: left;
+}
+
+.dreamloLBTable td:nth-child(3) {
+    /* Score column */
+    text-align: right;
+}
+
+.video {
+    margin: 4rem 0 0 0;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 660px) {
+    .container {
+        padding: 30px;
+    }
+}
