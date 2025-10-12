@@ -1,17 +1,14 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
+layout: ../../layouts/Project.astro
 
 title: "hopping race"
 date: "2021-11-01"
 description: "In this fast-paced tile-based racing game, you compete against up to 7 friends through a randomly generated world. Your score essentially acts as your HP, decreasing every second. Gathering coins increases your score, but beware, when your score reaches zero, you are eliminated for that round."
-image: "/projectdirectory/games/hopping race/thumb_hopping-race.webp"
-video: "/projectdirectory/games/hopping race/clip_hopping-race.mp4"
 ---
 
-![dynamic race tracks](/projectdirectory/games/hopping race/thumb_hopping-race.webp)
-![obstacles and power ups](/projectdirectory/games/hopping race/hopping race 5.webp)
-![local multiplayer](/projectdirectory/games/hopping race/hopping race 7.webp)
-![dodge the hazards](/projectdirectory/games/hopping race/hopping race 4.webp)
+![](../../media/projects/hopping-race_0.webp)
+![](../../media/projects/hopping-race_1.webp)
+![](../../media/projects/hopping-race_2.webp)
 
 ---
 

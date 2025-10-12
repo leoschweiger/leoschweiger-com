@@ -1,11 +1,10 @@
----
-layout: ../../layouts/ProjectLayout.astro
+<!-- ---
+layout: ../../layouts/Project.astro
 
 title: ""
 date: ""
 description: ""
-image: ""
-video: ""
+
 links:
   - url: ""
     text: ""
@@ -21,4 +20,4 @@ links:
 
 ### what i did
 
-### results
+### results -->

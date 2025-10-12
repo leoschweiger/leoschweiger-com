@@ -1,13 +1,11 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
+layout: ../../layouts/Project.astro
 
 title: "pinboll"
 date: "2025-02-14"
 description: "A modern take on the classic pinball game, built entirely from scratch using C++ and SFML. Players can build their own pinball boards by placing unique bumpers with different behaviors, experiment with setups, and compete for the highest score."
-image: "/projectdirectory/games/pinboll/thumb_pinboll.webp"
-video: "/projectdirectory/games/pinboll/clip_pinboll.mp4"
-videoTitle: "pinboll clip"
-links:
+
+inks:
   - url: "https://leoschweiger.itch.io/pinboll"
     text: "download"
   - url: "https://leoschweiger.com/pinboll/"
@@ -16,11 +14,9 @@ links:
     text: "trailer"
 ---
 
-<p class="imageCaption">(sound recommended)</p>
-
-![cover art](/projectdirectory/games/pinboll/thumb_pinboll.webp)
-![play pinball](/projectdirectory/games/pinboll/pinboll 1 keep.webp)
-![choose upgrades](/projectdirectory/games/pinboll/pinboll 2 keep.webp)
+![](../../media/projects/pinboll_0_keep.webp)
+![](../../media/projects/pinboll_1_keep.webp)
+![](../../media/projects/pinboll_2_keep.webp)
 
 ---
 

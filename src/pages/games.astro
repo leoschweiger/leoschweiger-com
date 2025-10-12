@@ -1,8 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ProjectList from "../components/ProjectList.astro";
+
+const projects = Object.values(
+    import.meta.glob(`./games/*.md`, { eager: true }),
+);
 ---
 
 <Layout title="games" topId="developed">
-    <div class="space" />
-    <p>games</p>
+    <div class="space"></div>
+    <div class="space"></div>
+    <ProjectList projects={projects} folder="games" />
 </Layout>

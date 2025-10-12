@@ -1,18 +1,14 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
+layout: ../../layouts/Project.astro
 
 title: "quizshow"
 date: "2020-03-01"
 description: "Inspired by TV trivia shows, this project offers an online experience designed for interactive quiz show evenings with friends."
-image: "/projectdirectory/games/quizshow/thumb_quizshow.webp"
-video: "/projectdirectory/games/quizshow/clip_quizshow.mp4"
-videoTitle: "clip_quizshow"
 ---
 
-![splash art](/projectdirectory/games/quizshow/thumb_quizshow.webp)
-![guess the image](/projectdirectory/games/quizshow/quizshow 4 keep.webp)
-![who knows the group the best](/projectdirectory/games/quizshow/quizshow 5 keep.webp)
-![categories like geography, history, gaming and more](/projectdirectory/games/quizshow/quizshow 6 keep.webp)
+![](../../media/projects/quizshow_0_keep.webp)
+![](../../media/projects/quizshow_1_keep.webp)
+![](../../media/projects/quizshow_2_keep.webp)
 
 ---
 

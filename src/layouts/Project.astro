@@ -1,0 +1,101 @@
+---
+const { frontmatter } = Astro.props;
+import Layout from "../layouts/Layout.astro";
+const id = frontmatter.title.replace(/ /g, "-").replace(/’/g, "");
+const videoSrc = "/projects/" + id + "_clip.mp4"
+---
+
+<Layout
+    title={frontmatter.title}
+    ogDesc={frontmatter.description}
+>
+    <div class="space"></div>
+
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <div id="caption" class="caption"></div>
+    </div>
+
+    <script>
+        import "../scripts/modal.js";
+    </script>
+
+    <section class="project">
+        <h1>{frontmatter.title}</h1>
+        <p class="bigtext">{frontmatter.description}</p>
+
+        <video src={videoSrc} title={frontmatter.title + " clip"} autoplay playsinline muted loop controls style="margin-bottom: 0"> </video>
+
+        <div id="slot-content" style="margin: 0;"> <slot /> </div>
+
+        {frontmatter.links && (
+            <div class="cols c12">
+                <h3>links</h3>
+                <p class="bigtext">
+                    {Object.keys(frontmatter.links).map((link) => (
+                    <a href={frontmatter.links[link].url} target="_blank">
+                        {frontmatter.links[link].text}
+                    </a>
+                    <br />
+                    ))}
+                </p>
+            </div>
+        )}
+
+    </section>
+</Layout>
+
+<script>
+    export function preprocessMarkdown(html: string) {
+    // 1️⃣ Wrap images containing "keep" in .imagekeepaspect
+    html = html.replace(
+        /<img([^>]*?)src="([^"]*keep[^"]*?)"([^>]*)>/gi,
+        '<div class="imagekeepaspect"><img class="zoomable"$1 src="$2"$3></div>'
+    );
+
+    // 2️⃣ Wrap all other images in .image (skip those already in imagekeepaspect)
+    html = html.replace(
+        /<img(?![^>]*keep)([^>]*)src="([^"]+)"([^>]*)>/gi,
+        '<div class="image"><img class="zoomable"$1 src="$2"$3></div>'
+    );
+
+    // 3️⃣ Replace a <h3> followed by a <p> with custom div layout
+    //    (like "### heading" + paragraph used to do)
+    html = html.replace(
+        /<h3[^>]*>(.*?)<\/h3>\s*<p[^>]*>(.*?)<\/p>/gms,
+        '<div class="cols c12"><h3>$1</h3><p class="bigtext">$2</p></div>'
+    );
+
+    // 4️⃣ Add target="_blank" to all <a> tags without it
+    html = html.replace(
+        /<a\s+(?![^>]*target=)([^>]*?)href="([^"]+)"([^>]*)>/gi,
+        '<a $1 href="$2"$3 target="_blank">'
+    );
+
+    html = html.replace(
+        '<h2 id="">',
+        ''
+    )
+        html = html.replace(
+        '</h2>',
+        ''
+    )
+
+    return html;
+    }
+
+    function escapeHtml(str: string) {
+    return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    const slotHTML = document.getElementById('slot-content');
+    const processedHtml = preprocessMarkdown(slotHTML?.innerHTML || '');
+    slotHTML!.innerHTML = processedHtml;
+    console.log("Processed HTML:", processedHtml);
+</script>

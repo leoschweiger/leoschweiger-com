@@ -1,0 +1,23 @@
+---
+import ProjectEntry from "./ProjectEntry.astro";
+
+const projects = Astro.props.projects;
+const folder = Astro.props.folder;
+
+// Sort descending (newest first)
+projects.sort(
+    (a: any, b: any) =>
+        new Date(b.frontmatter.date).getTime() -
+        new Date(a.frontmatter.date).getTime(),
+);
+---
+
+<section class="projectList">
+    <div class="project-grid">
+        {
+            projects.map((project: any, index: number) => (
+                <ProjectEntry project={project} index={index} />
+            ))
+        }
+    </div>
+</section>

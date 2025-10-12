@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+
+const project = Astro.props.project;
+const index = Astro.props.index;
+
+const id = project.frontmatter.title.replace(/ /g, "-").replace(/’/g, "");
+---
+
+<a class="project-list-link" href={project.url}>
+    <!-- <h3>{project.frontmatter.title}</h3> -->
+    <div
+        class="image"
+    >
+        <img
+            src={"/projects/" + id + "_thumb.webp"}
+            alt={project.frontmatter.title + " thumbnail"}
+        />
+        <video
+            id={"video-" + index}
+            src={"/projects/" + id + "_clip_preview.mp4"}
+            title={project.frontmatter.title + " preview"}
+            loop
+            muted
+        >
+        </video>
+    </div>
+</a>
+
+<script src="../scripts/videoPreview.ts"></script>
