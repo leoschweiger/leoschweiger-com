@@ -11,8 +11,6 @@ const id = project.frontmatter.title.replace(/ /g, "-").replace(/’/g, "");
     <!-- <h3>{project.frontmatter.title}</h3> -->
     <div
         class="image"
-        onmouseover={"playVideo(" + index + ")"}
-        onmouseout={"pauseVideo(" + index + ")"}
     >
         <img
             src={"/projects/" + id + "_thumb.webp"}
@@ -28,3 +26,5 @@ const id = project.frontmatter.title.replace(/ /g, "-").replace(/’/g, "");
         </video>
     </div>
 </a>
+
+<script src="../scripts/videoPreview.ts"></script>
