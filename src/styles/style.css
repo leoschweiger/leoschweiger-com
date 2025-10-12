@@ -214,8 +214,8 @@ p img {
 
 
 .getintouch {
-    margin: 1.5rem auto 3.5rem auto;
-    padding: 10svh 0 ;
+    margin: 2.5rem auto 3.5rem auto;
+    padding: 10svh 0;
     position: relative;
 }
 
@@ -310,6 +310,15 @@ body.hasHover .getintouch:hover .touch2 {
     aspect-ratio: calc(16/9);
 }
 
+.projectList {
+    width: calc(100% - (2 * var(--margin)));
+    max-width: 1200px;
+    margin: 0 calc(1 * var(--margin));
+    transition: .25s ease;
+    margin: auto;
+    display: flex;
+}
+
 .shadow {
     filter: drop-shadow(3px 3px 8px #00000023);
 }
@@ -371,6 +380,12 @@ body.hasHover .getintouch:hover .touch2 {
 @media only screen and (min-width: calc(1400px + 60px)) {
     body {
         margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: calc(850px + (4 * 51px))) {
+    .projectList {
+        width: 100%;
     }
 }
 
