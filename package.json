@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "leoschweiger-com",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "astro": "^5.14.3",
-    "puppeteer": "^24.25.0"
+    "puppeteer": "^24.25.0",
+    "serve": "^14.2.5"
   }
 }

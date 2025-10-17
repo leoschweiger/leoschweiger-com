@@ -1,26 +1,75 @@
 import puppeteer from "puppeteer";
-import { fileURLToPath } from "url";
 import path from "path";
+import fs from "fs";
+import { fileURLToPath } from "url";
+import { createServer } from "http";
+import { readFile } from "fs/promises";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const output = path.join(__dirname, "../dist/resume.pdf");
+const distDir = path.join(__dirname, "../dist");
+const pdfPathDist = path.join(distDir, "about.pdf");
+const pdfPathPublic = path.join(__dirname, "../public/about.pdf");
+
+// Robust static server
+function serveStatic(port = 4322) {
+    const server = createServer(async (req, res) => {
+        try {
+            let urlPath = req.url === "/" ? "/about/index.html" : req.url;
+
+            // If it ends with '/', serve index.html
+            if (urlPath.endsWith("/")) {
+                urlPath += "index.html";
+            }
+
+            const filePath = path.join(distDir, urlPath);
+
+            // Serve the file
+            const data = await readFile(filePath);
+            const ext = path.extname(filePath).toLowerCase();
+
+            // Simple content-type mapping
+            const mimeTypes = {
+                ".html": "text/html",
+                ".css": "text/css",
+                ".js": "text/javascript",
+                ".png": "image/png",
+                ".jpg": "image/jpeg",
+                ".jpeg": "image/jpeg",
+                ".svg": "image/svg+xml",
+                ".webp": "image/webp",
+            };
+
+            res.writeHead(200, { "Content-Type": mimeTypes[ext] || "application/octet-stream" });
+            res.end(data);
+        } catch (err) {
+            res.writeHead(404);
+            res.end("Not found");
+        }
+    });
+
+    return new Promise((resolve) => server.listen(port, () => resolve(server)));
+}
 
 (async () => {
+    const server = await serveStatic(4322);
+    console.log("🚀 Serving dist/ at http://localhost:4322");
+
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
-    await page.goto(`file://${path.join(__dirname, "../dist/about/index.html")}`, {
-        waitUntil: "networkidle0",
-    });
-
+    // Point to /about/ route
+    await page.goto("http://localhost:4322/about/", { waitUntil: "networkidle0" });
     await page.emulateMediaType("print");
 
     await page.pdf({
-        path: output,
+        path: pdfPathDist,
         format: "A4",
         printBackground: true,
     });
 
     await browser.close();
-    console.log("✅ Resume PDF generated:", output);
+    server.close();
+
+    fs.copyFileSync(pdfPathDist, pdfPathPublic);
+    console.log("✅ PDF generated:", pdfPathDist);
 })();
