@@ -1,14 +1,16 @@
 {
-  "name": "",
+  "name": "leoschweiger-com",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/generate-pdf.js",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.14.3"
+    "astro": "^5.14.3",
+    "puppeteer": "^24.25.0",
+    "serve": "^14.2.5"
   }
 }

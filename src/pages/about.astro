@@ -4,6 +4,7 @@ import { Picture } from "astro:assets";
 import { aboutMeLong, aboutMeShort } from "../scripts/config.js";
 import ExperienceEntry from "../components/ExperienceEntry.astro";
 import portraitImage from "../media/portrait-leo-schweiger.webp";
+import { email, links } from "../scripts/config.js";
 ---
 
 <Layout
@@ -12,18 +13,105 @@ import portraitImage from "../media/portrait-leo-schweiger.webp";
     ogImage={portraitImage.src}
     ogDesc={aboutMeShort}
 >
+    <style>
+        .pdf {
+            display: none;
+        }
+
+        @media print {
+            * {
+                --gray: rgb(212, 212, 212);
+            }
+            section {
+                position: absolute;
+                bottom: 0;
+                width: 100vw;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .nopdf {
+                display: none;
+            }
+            .pdf {
+                display: flex;
+            }
+            .imagekeepaspect {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .imagekeepaspect img {
+                width: 90% !important;
+            }
+
+            .cols.bottom {
+                align-items: end;
+            }
+            h1 {
+                font-size: 4.8rem;
+                margin: 0;
+            }
+            h2 {
+                font-size: 2.5rem;
+                font-weight: 400;
+                margin-bottom: 0.4rem;
+                margin-top: 0;
+            }
+
+            h3 {
+                font-size: 2.7rem;
+            }
+
+            hr {
+                margin: 0.5rem 0;
+            }
+
+            .pdflinks {
+                max-width: 100%;
+                display: block;
+                text-align: right;
+            }
+        }
+    </style>
+
+    <div class="smallspace pdf"></div>
+    <p class="pdflinks pdf">
+        <a href={links["leoschweiger.com"]}> www.leoschweiger.com </a>
+        <br />
+        <a href={links[email]}>
+            {email}
+        </a>
+        <br />
+        <a href={links["github"]}> github </a>
+        <br />
+        <a href={links["linked in"]}> linked in </a>
+    </p>
     <section>
         <div class="space"></div>
 
-        <h1>about me</h1>
+        <h1 class="nopdf">about me</h1>
 
-        <p class="bigtext" set:html={aboutMeLong} />
+        <p class="bigtext nopdf" set:html={aboutMeLong} />
 
-        <div class="imagekeepaspect">
-            <Picture
-                src={portraitImage}
-                alt="leo schweiger portrait"
-            />
+        <div class="imagekeepaspect nopdf">
+            <Picture src={portraitImage} alt="leo schweiger portrait" />
+        </div>
+
+        <div class="cols bottom c12 pdf">
+            <div class="imagekeepaspect">
+                <Picture src={portraitImage} alt="leo schweiger portrait" />
+            </div>
+            <div class="bigtext">
+                <h1>leo schweiger</h1>
+                <h2>software developer</h2>
+            </div>
+        </div>
+
+        <hr class="pdf" />
+        <hr />
+
+        <div class="cols c12 pdf">
+            <h3 class="">about</h3>
+            <p class="" set:html={aboutMeLong + "<br /> <br /> "} />
         </div>
 
         <hr />
@@ -40,6 +128,15 @@ import portraitImage from "../media/portrait-leo-schweiger.webp";
                     companyKind="indie game studio"
                     link="https://secondstage.studio/"
                     doing="developing a multiplayer game in defold"
+                />
+                <ExperienceEntry
+                    from={2024}
+                    to={2025}
+                    company="Salzburg University of Applied Sciences"
+                    position="tutor"
+                    companyKind="introduction to programming"
+                    link="https://www.fh-salzburg.ac.at/en/study/ct/multimediatechnology-bachelor"
+                    doing="tutoring first semester students in programming basics"
                 />
                 <ExperienceEntry
                     from={2024}
@@ -68,7 +165,7 @@ import portraitImage from "../media/portrait-leo-schweiger.webp";
                     link="https://www.msq.at/"
                     doing="developing a prototype for a VR puzzle game"
                 />
-                <ExperienceEntry
+                <!-- <ExperienceEntry
                     from={2020}
                     to={2020}
                     company="Spectrum Advertising Agency GmbH"
@@ -76,7 +173,7 @@ import portraitImage from "../media/portrait-leo-schweiger.webp";
                     companyKind="marketing agency"
                     link="https://www.spectrum.at/"
                     doing="creating graphics and advertisements"
-                />
+                /> -->
             </p>
         </div>
 
@@ -126,10 +223,11 @@ import portraitImage from "../media/portrait-leo-schweiger.webp";
                 <p>
                     <span class="bigtext">languages</span><br />
                     C#, C++, Lua<br />
-                    Python, SQL<br />
+                    Python, Astro<br />
                     basic webstack<br />
                 </p>
             </div>
         </div>
+        <div class="space pdf"></div>
     </section>
 </Layout>

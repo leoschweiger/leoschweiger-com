@@ -1,5 +1,5 @@
 ---
-import { email, links } from "../scripts/config.js";
+import { email, footerLinks } from "../scripts/config.js";
 
 const getInTouch = Astro.props.getInTouch || "true";
 ---
@@ -34,10 +34,10 @@ const getInTouch = Astro.props.getInTouch || "true";
         <div>
             <p class="bigtext">contact</p>
             {
-                Object.keys(links).map((link) => (
+                Object.keys(footerLinks).map((link) => (
                     <p>
                         <a
-                            href={links[link as keyof typeof links]}
+                            href={footerLinks[link as keyof typeof footerLinks]}
                             target="_blank"
                             style="margin: 0"
                         >

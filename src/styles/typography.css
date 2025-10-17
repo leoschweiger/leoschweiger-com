@@ -89,7 +89,7 @@ h4 {
 
 p a {
     display: inline-block;
-    color: rgb(138, 138, 138);
+    color: var(--gray);
     text-decoration: underline;
     text-underline-offset: .3rem;
     text-decoration-thickness: .08rem;
@@ -163,7 +163,7 @@ span.avoidwrap {
 
 hr {
     margin: 1rem 0;
-    color: rgba(0, 0, 0, 0);
+    color: var(--black);
     opacity: 0;
 }
 
@@ -171,7 +171,7 @@ hr {
     position: relative;
     font-weight: 600;
     font-size: .9rem;
-    color: grey;
+    color: var(--gray);
     margin: 0;
     top: 1.5rem;
 }
