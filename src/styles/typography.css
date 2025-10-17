@@ -89,7 +89,7 @@ h4 {
 
 p a {
     display: inline-block;
-    color: rgb(138, 138, 138);
+    color: var(--gray);
     text-decoration: underline;
     text-underline-offset: .3rem;
     text-decoration-thickness: .08rem;

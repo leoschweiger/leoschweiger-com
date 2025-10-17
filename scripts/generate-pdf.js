@@ -7,7 +7,7 @@ import { readFile } from "fs/promises";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(__dirname, "../dist");
-const pdfPathDist = path.join(distDir, "about.pdf");
+const pdfPathDist = path.join(distDir, "resume-leo-schweiger.pdf");
 
 // Robust static server
 function serveStatic(port = 4322) {
