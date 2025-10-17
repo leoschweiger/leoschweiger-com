@@ -68,6 +68,10 @@ nav, .footer, .getintouch { display: none !important; }
   `
     });
 
+    await page.evaluate(() => {
+        document.title = "resume leo schweiger";
+    });
+
     await page.pdf({
         path: pdfPathDist,
         format: "A4",
