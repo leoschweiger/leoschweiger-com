@@ -8,7 +8,6 @@ import { readFile } from "fs/promises";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(__dirname, "../dist");
 const pdfPathDist = path.join(distDir, "about.pdf");
-const pdfPathPublic = path.join(__dirname, "../public/about.pdf");
 
 // Robust static server
 function serveStatic(port = 4322) {
@@ -59,17 +58,25 @@ function serveStatic(port = 4322) {
 
     // Point to /about/ route
     await page.goto("http://localhost:4322/about/", { waitUntil: "networkidle0" });
-    await page.emulateMediaType("print");
+
+    // Inject print-specific CSS
+    await page.addStyleTag({
+        content: `
+    @media print {
+nav, .footer, .getintouch { display: none !important; }
+    }
+  `
+    });
 
     await page.pdf({
         path: pdfPathDist,
         format: "A4",
-        printBackground: true,
+        printBackground: false,
+        scale: 0.8,
     });
 
     await browser.close();
     server.close();
 
-    fs.copyFileSync(pdfPathDist, pdfPathPublic);
     console.log("✅ PDF generated:", pdfPathDist);
 })();

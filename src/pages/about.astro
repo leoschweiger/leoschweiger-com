@@ -12,18 +12,34 @@ import portraitImage from "../media/portrait-leo-schweiger.webp";
     ogImage={portraitImage.src}
     ogDesc={aboutMeShort}
 >
+    <style>
+        .nopdf {
+            display: none;
+        }
+        @media print {
+            .pdf {
+                display: none;
+            }
+            .nopdf {
+                display: block;
+            }
+        }
+    </style>
+
     <section>
         <div class="space"></div>
 
         <h1>about me</h1>
 
-        <p class="bigtext" set:html={aboutMeLong} />
+        <p class="bigtext nopdf" set:html={aboutMeLong} />
 
-        <div class="imagekeepaspect">
-            <Picture
-                src={portraitImage}
-                alt="leo schweiger portrait"
-            />
+        <div class="imagekeepaspect nopdf">
+            <Picture src={portraitImage} alt="leo schweiger portrait" />
+        </div>
+
+        <div class="cols c12 pdf">
+            <Picture src={portraitImage} alt="leo schweiger portrait" />
+            <p class="bigtext" set:html={aboutMeLong} />
         </div>
 
         <hr />
