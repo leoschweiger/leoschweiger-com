@@ -15,7 +15,7 @@ links:
 ---
 
 
-<iframe class="image desktop" style="margin-bottom: -20px" frameborder="0" src="https://itch.io/embed-upload/15254512?color=ffffff" allowfullscreen=""><a href="https://leoschweiger.itch.io/fight-guys">Play Fight guys on itch.io</a></iframe>
+<iframe title="fight guys game embed"  class="image desktop" style="margin-bottom: -20px; border: 0" src="https://itch.io/embed-upload/15254512?color=ffffff" allowfullscreen><a href="https://leoschweiger.itch.io/fight-guys">Play Fight guys on itch.io</a></iframe>
 
 ![](../../media/projects/fight-guys_0.webp)
 ![](../../media/projects/fight-guys_1.webp)
