@@ -7,16 +7,18 @@ description: "A physics-based auto battler with asynchronous multiplayer matches
 
 links:
   - url: "https://leoschweiger.itch.io/fight-guys"
-    text: "download"
+    text: "game page"
   - url: "https://leoschweiger.itch.io/fight-guys/devlog/958323/fight-guys-021-patch-notes"
     text: "week one recap"
   - url: "https://youtu.be/iWUF-No3fm8"
     text: "gameplay video"
 ---
 
+
+<iframe class="image desktop" style="margin-bottom: -20px" frameborder="0" src="https://itch.io/embed-upload/15254512?color=ffffff" allowfullscreen=""><a href="https://leoschweiger.itch.io/fight-guys">Play Fight guys on itch.io</a></iframe>
+
 ![](../../media/projects/fight-guys_0.webp)
 ![](../../media/projects/fight-guys_1.webp)
-![](../../media/projects/fight-guys_2.webp)
 
 ---
 
