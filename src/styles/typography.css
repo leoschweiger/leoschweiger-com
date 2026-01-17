@@ -231,6 +231,16 @@ header h3 {
 /*phone*/
 @media only screen and (max-width: 566px) {
 
+
+    p,
+    input,
+    select,
+    li,
+    label,
+    .bigtext {
+        font-size: 1.25rem;
+    }
+
     h1 {
         font-size: 3.4rem;
         line-height: 3.1rem;
