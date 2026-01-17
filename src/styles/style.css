@@ -455,7 +455,7 @@ body.hasHover .getintouch:hover .touch2 {
 @media only screen and (max-width: 566px) {
 
     :root {
-        --margin: 21px;
+        --margin: 13px;
     }
 
     .dark {
