@@ -12,5 +12,6 @@
     "astro": "^5.14.3",
     "puppeteer": "^24.25.0",
     "serve": "^14.2.5"
-  }
+  },
+  "packageManager": "yarn@4.12.0"
 }
