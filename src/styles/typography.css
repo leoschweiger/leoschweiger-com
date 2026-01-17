@@ -205,6 +205,17 @@ header h3 {
     color: var(--gray);
 }
 
+.simple-link a {
+    transition: .1s;
+}
+
+.simple-link a:hover {
+    color: rgba(131, 131, 131, 0.7);
+    text-decoration-color: rgba(131, 131, 131, 0.7);
+    transform: translateY(0) !important;
+}
+
+
 /*mid*/
 @media only screen and (max-width: calc(750px)) {
 
