@@ -9,13 +9,31 @@ const { doing } = Astro.props;
 ---
 
 <span class="bigtext">
-    {to - from > 0 ? from + "–" + to : from || to} {company}
-    <a href={link} target="_blank" style="text-decoration: none">&#x2197;&#xFE0E;</a>
+    {
+        typeof to === "string"
+            ? `${from}–${to}`
+            : to > from
+              ? `${from}–${to}`
+              : from || to
+    }
+    {company}
+    <a href={link} target="_blank" style="text-decoration: none"
+        >&#x2197;&#xFE0E;</a
+    >
 </span>
 <br />
-{position && companyKind
-    ? `${position}, ${companyKind}`
-    : position || companyKind}
-{doing ? <br /> <span class="gray">{doing}</span> : ""}
+{
+    position && companyKind
+        ? `${position}, ${companyKind}`
+        : position || companyKind
+}
+{
+    doing && (
+        <>
+            <br />
+            <span class="gray simple-link" set:html={doing} />
+        </>
+    )
+}
 <br />
 <br />

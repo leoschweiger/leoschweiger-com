@@ -5,6 +5,7 @@ import { aboutMeLong, aboutMeShort } from "../scripts/config.js";
 import ExperienceEntry from "../components/ExperienceEntry.astro";
 import portraitImage from "../media/portrait-leo-schweiger.webp";
 import { email, links } from "../scripts/config.js";
+import "../styles/about.css";
 ---
 
 <Layout
@@ -13,66 +14,6 @@ import { email, links } from "../scripts/config.js";
     ogImage={portraitImage.src}
     ogDesc={aboutMeShort}
 >
-    <style>
-        .pdf {
-            display: none;
-        }
-
-        @media print {
-            * {
-                --gray: rgb(212, 212, 212);
-            }
-            section {
-                position: absolute;
-                bottom: 0;
-                width: 100vw;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            .nopdf {
-                display: none;
-            }
-            .pdf {
-                display: flex;
-            }
-            .imagekeepaspect {
-                margin: 0 !important;
-                padding: 0 !important;
-            }
-            .imagekeepaspect img {
-                width: 90% !important;
-            }
-
-            .cols.bottom {
-                align-items: end;
-            }
-            h1 {
-                font-size: 4.8rem;
-                margin: 0;
-            }
-            h2 {
-                font-size: 2.5rem;
-                font-weight: 400;
-                margin-bottom: 0.4rem;
-                margin-top: 0;
-            }
-
-            h3 {
-                font-size: 2.7rem;
-            }
-
-            hr {
-                margin: 0.5rem 0;
-            }
-
-            .pdflinks {
-                max-width: 100%;
-                display: block;
-                text-align: right;
-            }
-        }
-    </style>
-
     <div class="smallspace pdf"></div>
     <p class="pdflinks pdf">
         <a href={links["leoschweiger.com"]}> www.leoschweiger.com </a>
@@ -121,13 +62,21 @@ import { email, links } from "../scripts/config.js";
 
             <p>
                 <ExperienceEntry
-                    from={2025}
-                    to={2025}
+                    from={2026}
+                    to={"today"}
                     company="Second Stage Studio"
-                    position="game programmer intern"
+                    position="freelance game programmer"
                     companyKind="indie game studio"
                     link="https://secondstage.studio/"
-                    doing="developing a multiplayer game in defold"
+                    doing="UI systems, menus, controls & settings for <a href='https://store.steampowered.com/app/4191250/Sprint_City/' target='_blank' rel='noopener noreferrer'>Sprint City</a> in Defold"
+                />
+                <ExperienceEntry
+                    from={2025}
+                    company="Second Stage Studio"
+                    position="game programmer intern (4 months)"
+                    companyKind="indie game studio"
+                    link="https://secondstage.studio/"
+                    doing="UI systems, menus, shaders for <a href='https://store.steampowered.com/app/4191250/Sprint_City/' target='_blank' rel='noopener noreferrer'>Sprint City</a> in Defold"
                 />
                 <ExperienceEntry
                     from={2024}
@@ -140,40 +89,40 @@ import { email, links } from "../scripts/config.js";
                 />
                 <ExperienceEntry
                     from={2024}
-                    to={2024}
                     company="Buffactory Media GmbH"
                     position="ad creative developer intern"
                     companyKind="advertising agency"
                     link="https://buffactory.com/"
                     doing="designing web advertisements"
                 />
-                <ExperienceEntry
-                    from={2022}
-                    to={2022}
-                    company="Target Group Publishing GmbH"
-                    position="editorial designer intern"
-                    companyKind="publishing agency"
-                    link="http://www.target-group.at/"
-                    doing="designing layouts for magazines and print advertisements"
-                />
+                <span class="nopdf">
+                    <ExperienceEntry
+                        from={2022}
+                        company="Target Group Publishing GmbH"
+                        position="editorial designer intern"
+                        companyKind="publishing agency"
+                        link="http://www.target-group.at/"
+                        doing="designing layouts for magazines and print advertisements"
+                    />
+                </span>
                 <ExperienceEntry
                     from={2021}
-                    to={2021}
                     company="Mediasquad GmbH"
                     position="VR developer intern"
                     companyKind="studio for AR/VR apps"
                     link="https://www.msq.at/"
                     doing="developing a prototype for a VR puzzle game"
                 />
-                <!-- <ExperienceEntry
-                    from={2020}
-                    to={2020}
-                    company="Spectrum Advertising Agency GmbH"
-                    position="corporate-designer intern"
-                    companyKind="marketing agency"
-                    link="https://www.spectrum.at/"
-                    doing="creating graphics and advertisements"
-                /> -->
+                <span class="nopdf">
+                    <ExperienceEntry
+                        from={2020}
+                        company="Spectrum Advertising Agency GmbH"
+                        position="corporate-designer intern"
+                        companyKind="marketing agency"
+                        link="https://www.spectrum.at/"
+                        doing="creating graphics and advertisements"
+                    />
+                </span>
             </p>
         </div>
 
