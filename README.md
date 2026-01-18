@@ -1,43 +1,38 @@
-# Astro Starter Kit: Minimal
+# leoschweiger.com
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Source code for my personal portfolio website:  
+👉 https://leoschweiger.com
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+![Website preview](preview.png)
 
-## 🚀 Project Structure
+This repository exists mainly for transparency. I like having some public code on GitHub, and this project is a good representation of how I approach web development and design, even though my main focus is game development.
 
-Inside of your Astro project, you'll see the following folders and files:
+## About
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+I’m not a full-time web developer, but I care about:
+- clean structure
+- modern tooling
+- visual polish
+- not relying on website builders
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+The site is intentionally simple and fast. It’s meant to showcase my work, not to be a complex web app.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Tech
 
-Any static assets, like images, can be placed in the `public/` directory.
+* Framework: [Astro](https://astro.build/)
+* Package Manager: [npm](https://www.npmjs.com/)
+* Deployment: [Cloudflare Pages](https://pages.cloudflare.com/)
 
-## 🧞 Commands
+Before this, I used a PHP-based setup. It worked, but hosting was slower and more expensive than it needed to be. Switching to Astro + static hosting made the site faster, cheaper, and easier to maintain.
 
-All commands are run from the root of the project, from a terminal:
+## Resume generation
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+My resume PDF is generated automatically using [Puppeteer](https://pptr.dev/).
 
-## 👀 Want to learn more?
+👉 [resume-leo-schweiger.pdf](https://leoschweiger.com/resume-leo-schweiger.pdf)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The content comes directly from the [/about](https://leoschweiger.com/about) page. This way, the website and the PDF always stay in sync, and I don’t have to maintain the same information twice.
+
+## Notes
+
+No contributions, issues, or pull requests intended
