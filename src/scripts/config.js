@@ -7,8 +7,8 @@ export const aboutMeShort =
 export const mainTitle = "leo schweiger";
 
 export const resume = "/resume-leo-schweiger.pdf"
-export const email = "leo.schweiger@icloud.com"
-export const emailDisplay = "leo.schweiger＠icloud.com"
+export const email = "leo@leoschweiger.com"
+export const emailDisplay = "leo＠leoschweiger.com"
 export const links = {
     [emailDisplay]: `mailto:${email}`,
     [email]: `mailto:${email}`,
