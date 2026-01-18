@@ -14,8 +14,15 @@ links:
     text: "gameplay video"
 ---
 
+<div id="iframe-container" style="margin: 0; padding: 0"></div>
+<script>
+  if (window.matchMedia("(min-width: 556px)").matches) {
+    document.getElementById("iframe-container").innerHTML = `
+      <iframe title="fight guys game embed"  class="image" style="margin-bottom: -20px; border: 0" src="https://itch.io/embed-upload/15254512?color=ffffff" allowfullscreen><a href="https://leoschweiger.itch.io/fight-guys">Play Fight guys on itch.io</a></iframe>
+    `;
+  }
+</script>
 
-<iframe title="fight guys game embed"  class="image desktop" style="margin-bottom: -20px; border: 0" src="https://itch.io/embed-upload/15254512?color=ffffff" allowfullscreen><a href="https://leoschweiger.itch.io/fight-guys">Play Fight guys on itch.io</a></iframe>
 
 ![](../../media/projects/fight-guys_0.webp)
 ![](../../media/projects/fight-guys_1.webp)
