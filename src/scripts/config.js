@@ -10,17 +10,15 @@ export const resume = "/resume-leo-schweiger.pdf"
 export const email = "leo@leoschweiger.com"
 export const emailDisplay = "leo＠leoschweiger.com"
 export const links = {
-    [emailDisplay]: `mailto:${email}`,
     [email]: `mailto:${email}`,
     "linked in": "https://www.linkedin.com/in/leo-schweiger-256987339/",
     "itch": "https://leoschweiger.itch.io/",
     "github": "https://github.com/leoschweiger",
     "leoschweiger.com": staticUrl,
-    "resume": `${staticUrl}/resume-leo-schweiger.pdf`
 };
 
 export const footerLinks = {
-    [emailDisplay]: links[emailDisplay],
+    [emailDisplay]: links[email],
     "linked in": links["linked in"],
     "itch": links["itch"],
     "github": links["github"]
