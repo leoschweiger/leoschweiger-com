@@ -20,6 +20,6 @@ export const links = {
 export const footerLinks = {
     [emailDisplay]: links[email],
     "linked in": links["linked in"],
-    "itch": links["itch"],
+    "itch.io": links["itch"],
     "github": links["github"]
 };
