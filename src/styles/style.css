@@ -372,7 +372,10 @@ body.hasHover .getintouch:hover .touch2 {
     margin-top: 1rem;
 }
 
-
+.call-to-action {
+    border-bottom: 2px solid var(--white);
+    padding: 1px 2px 0px 2px;
+}
 
 
 /* very wide */
