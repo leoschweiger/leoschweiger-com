@@ -7,9 +7,9 @@ import { readFile } from "fs/promises";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(__dirname, "../dist");
 
-generatePdf("/about/", "resume-leo-schweiger.pdf", 4322);
-generatePdf("/about-game/", "resume-leo-schweiger-game.pdf", 4323);
-generatePdf("/about-design/", "resume-leo-schweiger-design.pdf", 4324);
+generatePdf("/about.html", "resume-leo-schweiger.pdf", 4322);
+generatePdf("/about-game.html", "resume-leo-schweiger-game.pdf", 4323);
+generatePdf("/about-design.html", "resume-leo-schweiger-design.pdf", 4324);
 
 // Robust static server
 function serveStatic(port, page) {

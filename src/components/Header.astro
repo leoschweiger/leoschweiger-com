@@ -5,9 +5,13 @@ const title = Astro.props.title || "";
 const ogImage = Astro.props.image;
 const ogDesc = Astro.props.ogDesc || "";
 const topId = Astro.props.topId || "";
-const resumeHref = /\/about-game\/?$/.test(Astro.url.pathname)
+const pathname = Astro.url.pathname
+    .replace(/\/index\.html$/, "")
+    .replace(/\.html$/, "")
+    .replace(/\/$/, "");
+const resumeHref = /\/about-game$/.test(pathname)
     ? "/resume-leo-schweiger-game.pdf"
-    : /\/about-design\/?$/.test(Astro.url.pathname)
+    : /\/about-design$/.test(pathname)
       ? "/resume-leo-schweiger-design.pdf"
       : resume;
 
