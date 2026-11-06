@@ -59,11 +59,11 @@ const currentPage = Astro.url.pathname;
         <hr />
 
         <div class="cols c12 pdf">
-            <h3 class="">about</h3>
+            <h3 class=""></h3>
             <p class="" set:html={aboutMeLongDesign + "<br /> <br /> "} />
         </div>
 
-        <hr />
+        <hr class="no-pdf" />
 
         <div class="cols c12">
             <h3 class="">skills</h3>
@@ -82,15 +82,17 @@ const currentPage = Astro.url.pathname;
             <h3 class="">experience</h3>
 
             <p>
-                <ExperienceEntry
-                    from={2025}
-                    to={2026}
-                    company="Second Stage Studio"
-                    position="UI developer"
-                    companyKind="indie game studio"
-                    link="https://secondstage.studio/"
-                    doing="developing UI tech, menus, controls & settings for <a href='https://store.steampowered.com/app/4191250/Sprint_City/' target='_blank' rel='noopener noreferrer'>Sprint City</a>"
-                />
+                <span class="nopdf">
+                    <ExperienceEntry
+                        from={2025}
+                        to={2026}
+                        company="Second Stage Studio"
+                        position="UI developer"
+                        companyKind="indie game studio"
+                        link="https://secondstage.studio/"
+                        doing="developing UI tech, menus, controls & settings for <a href='https://store.steampowered.com/app/4191250/Sprint_City/' target='_blank' rel='noopener noreferrer'>Sprint City</a>"
+                    />
+                </span>
                 <!-- <ExperienceEntry
                     from={2024}
                     to={2025}

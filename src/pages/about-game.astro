@@ -59,11 +59,11 @@ const currentPage = Astro.url.pathname;
         <hr />
 
         <div class="cols c12 pdf">
-            <h3 class="">about</h3>
+            <h3 class=""></h3>
             <p class="" set:html={aboutMeLongGame + "<br /> <br /> "} />
         </div>
 
-        <hr />
+        <hr class="no-pdf" />
 
         <div class="cols c12">
             <h3 class="">skills</h3>
@@ -162,15 +162,17 @@ const currentPage = Astro.url.pathname;
                     link="https://www.fh-salzburg.ac.at/en/study/ct/code-and-interactive-systems-bachelor"
                     doing="game development and augmented reality"
                 />
-                <ExperienceEntry
-                    from={2017}
-                    to={2022}
-                    company="HTL Bau und Design"
-                    position=""
-                    companyKind="higher vocational school"
-                    link="https://www.htl-ibk.at/"
-                    doing="focusing on graphic-design and marketing"
-                />
+                <span class="nopdf">
+                    <ExperienceEntry
+                        from={2017}
+                        to={2022}
+                        company="HTL Bau und Design"
+                        position=""
+                        companyKind="higher vocational school"
+                        link="https://www.htl-ibk.at/"
+                        doing="focusing on graphic-design and marketing"
+                    />
+                </span>
             </p>
         </div>
 

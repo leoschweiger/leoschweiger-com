@@ -1,6 +1,6 @@
 export const staticUrl = "https://leoschweiger.com";
 export const aboutMeLong =
-    `I’m a student and software developer based in Salzburg, Austria, focused on creating effective, interesting and fun projects. Since 2018, my technical and artistic background allowed me to create multiple <a href="${staticUrl}/games#developed">projects</a> already.`;
+    `I’m a student and software developer based in Salzburg, Austria, focused on creating effective, interesting and fun projects. My technical and artistic background allowed me to create multiple <a href="${staticUrl}/games#developed">projects</a> already.`;
 export const aboutMeShort =
     'I’m a software developer focused on creating interesting and fun software.';
 
