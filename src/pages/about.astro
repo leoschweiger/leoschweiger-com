@@ -4,6 +4,7 @@ import { Picture } from "astro:assets";
 import { aboutMeLong, aboutMeShort } from "../scripts/config.js";
 import ExperienceEntry from "../components/ExperienceEntry.astro";
 import portraitImage from "../media/portrait-leo-schweiger.webp";
+import portraitImageWide from "../media/portrait-leo-schweiger-wide.webp";
 import { email, links } from "../scripts/config.js";
 import "../styles/about.css";
 ---
@@ -32,7 +33,7 @@ import "../styles/about.css";
         <p class="bigtext nopdf" set:html={aboutMeLong} />
 
         <div class="imagekeepaspect nopdf">
-            <Picture src={portraitImage} alt="leo schweiger portrait" />
+            <Picture src={portraitImageWide} alt="leo schweiger portrait" />
         </div>
 
         <div class="cols bottom c12 pdf">
@@ -53,6 +54,19 @@ import "../styles/about.css";
             <p class="" set:html={aboutMeLong + "<br /> <br /> "} />
         </div>
 
+        <hr />
+
+        <div class="cols c12">
+            <h3 class="">skills</h3>
+            <p>
+                › proficient in C#, solid experience in C++ and Lua<br />
+                › comfortable building CI/CD pipelines<br />
+                › experience leading smaller development teams<br />
+                › secondary experience in TypeScript, Python and Go <br />
+            </p>
+        </div>
+
+        <hr />
         <hr />
 
         <div class="cols c12">
@@ -151,18 +165,6 @@ import "../styles/about.css";
             </p>
         </div>
 
-        <hr />
-
-        <div class="cols c12">
-            <h3 class="">skills</h3>
-            <p>
-                › proficient in C#, solid experience in C++ and Lua <br />
-                › experienced Unity developer <br />
-                › additional experience with Defold and Unreal Engine <br />
-                › focused on game systems, design, and UI <br />
-                › secondary experience in web dev, Astro and Go <br />
-            </p>
-        </div>
         <div class="space pdf"></div>
     </section>
 </Layout>

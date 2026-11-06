@@ -5,6 +5,11 @@ const title = Astro.props.title || "";
 const ogImage = Astro.props.image;
 const ogDesc = Astro.props.ogDesc || "";
 const topId = Astro.props.topId || "";
+const resumeHref = /\/about-game\/?$/.test(Astro.url.pathname)
+    ? "/resume-leo-schweiger-game.pdf"
+    : /\/about-design\/?$/.test(Astro.url.pathname)
+      ? "/resume-leo-schweiger-design.pdf"
+      : resume;
 
 import "../styles/style.css";
 import "../styles/typography.css";
@@ -48,7 +53,11 @@ import "../styles/projects.css";
     <ul>
         <li><a href="/games#developed">games</a></li>
         <li><a href="/about#leo">about</a></li>
-        <li><a href={resume} target="_blank">resume</a></li>
+        <li>
+            <a class="call-to-action" href={resumeHref} target="_blank"
+                >resume</a
+            >
+        </li>
     </ul>
 </nav>
 <div class="nothing" id={topId}></div>

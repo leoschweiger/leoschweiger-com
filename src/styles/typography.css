@@ -115,7 +115,7 @@ body.hasHover a.button:hover {
     left: .66rem;
 }
 
-.footer a {
+.footer a:not(.legal-links) {
     position: relative;
     color: var(--white);
     text-decoration: none;
@@ -124,9 +124,14 @@ body.hasHover a.button:hover {
     transform: none;
 }
 
-body.hasHover .footer a:hover {
+body.hasHover .footer a:not(.legal-links):hover {
     transform: none;
     left: .66rem;
+}
+
+.legal-links {
+    text-decoration: none;
+    padding-left: .7rem !important;
 }
 
 ul {
@@ -202,7 +207,7 @@ header h3 {
 }
 
 .gray {
-    color: var(--gray);
+    color: var(--gray) !important;
 }
 
 .simple-link a {
@@ -282,7 +287,7 @@ header h3 {
 @media only screen and (min-width: calc(750px)) {
 
     h1 {
-        font-size: 8rem;
+        font-size: 6rem;
         line-height: 7rem;
     }
 
@@ -300,6 +305,6 @@ header h3 {
     }
 
     h3 {
-        font-size: 3.2rem;
+        font-size: 2.7rem;
     }
 }

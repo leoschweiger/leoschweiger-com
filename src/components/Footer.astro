@@ -25,14 +25,6 @@ const getInTouch = Astro.props.getInTouch || "true";
 <div class="footer fullwidth dark" id="contact">
     <section class="cols c12">
         <div>
-            <p class="bigtext">impressum</p>
-            <p>leo schweiger</p>
-            <p>urstein süd 5</p>
-            <p>5412 puch bei hallein</p>
-            <p>austria</p>
-        </div>
-        <div>
-            <p class="bigtext">contact</p>
             {
                 Object.keys(footerLinks).map((link) => (
                     <p>
@@ -46,6 +38,24 @@ const getInTouch = Astro.props.getInTouch || "true";
                     </p>
                 ))
             }
+        </div>
+        <div
+            style="display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-end;"
+        >
+            <p>
+                <a
+                    class="legal-links"
+                    href="/imprint.txt"
+                    target="_blank"
+                    style="margin: 0">imprint</a
+                >
+                <a
+                    class="legal-links"
+                    href="/privacy.txt"
+                    target="_blank"
+                    style="margin: 0">privacy</a
+                >
+            </p>
         </div>
     </section>
 </div>
