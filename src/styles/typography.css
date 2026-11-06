@@ -91,9 +91,8 @@ p a {
     display: inline-block;
     color: var(--gray);
     text-decoration: underline;
-    text-underline-offset: .3rem;
-    text-decoration-thickness: .08rem;
-    text-decoration-color: rgb(171, 171, 171);
+    text-underline-offset: .36em;
+    text-decoration-thickness: .07rem;
     transform: translateY(0rem);
     transition: .2s;
 }
