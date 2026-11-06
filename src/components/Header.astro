@@ -5,9 +5,9 @@ const title = Astro.props.title || "";
 const ogImage = Astro.props.image;
 const ogDesc = Astro.props.ogDesc || "";
 const topId = Astro.props.topId || "";
-const resumeHref = /\/about-game.html?$/.test(Astro.url.pathname)
+const resumeHref = /\/about-game\/?$/.test(Astro.url.pathname)
     ? "/resume-leo-schweiger-game.pdf"
-    : /\/about-design.html?$/.test(Astro.url.pathname)
+    : /\/about-design\/?$/.test(Astro.url.pathname)
       ? "/resume-leo-schweiger-design.pdf"
       : resume;
 
