@@ -61,4 +61,8 @@
         display: block;
         text-align: right;
     }
+
+    a {
+        text-decoration-color: #808080 !important
+    }
 }
