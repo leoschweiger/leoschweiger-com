@@ -182,15 +182,14 @@ section {
     display: flex;
     flex-direction: row;
     align-items: top;
-    gap: 1rem;
 }
 
 .c12> :nth-child(1) {
-    flex-grow: .5;
+    flex-grow: .42;
 }
 
 .c21> :nth-child(2) {
-    flex-grow: .5;
+    flex-grow: .42;
 }
 
 .c111>* {
