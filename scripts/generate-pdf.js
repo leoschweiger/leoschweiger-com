@@ -62,7 +62,28 @@ function generatePdf(pageName, fileName, port) {
         const page = await browser.newPage();
 
         // Point to pagename route
-        await page.goto(path.join("http://localhost:4322", pageName), { waitUntil: "networkidle0" });
+        await page.goto(`http://localhost:${port}${pageName}`, { waitUntil: "networkidle0" });
+
+        await page.evaluate(async () => {
+            const images = Array.from(document.images);
+            images.forEach((image) => {
+                image.loading = "eager";
+            });
+
+            await Promise.all(
+                images.map(
+                    (image) =>
+                        image.complete
+                            ? Promise.resolve()
+                            : new Promise((resolve, reject) => {
+                                image.addEventListener("load", resolve, { once: true });
+                                image.addEventListener("error", () => reject(new Error(`Failed to load image: ${image.src}`)), {
+                                    once: true,
+                                });
+                            }),
+                ),
+            );
+        });
 
         // Inject print-specific CSS
         await page.addStyleTag({

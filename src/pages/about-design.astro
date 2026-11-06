@@ -4,6 +4,7 @@ import { Picture } from "astro:assets";
 import { staticUrl } from "../scripts/config.js";
 import ExperienceEntry from "../components/ExperienceEntry.astro";
 import portraitImage from "../media/portrait-leo-schweiger.webp";
+import portraitImageWide from "../media/portrait-leo-schweiger-wide.webp";
 import { email, links } from "../scripts/config.js";
 import "../styles/about.css";
 
@@ -41,7 +42,7 @@ const currentPage = Astro.url.pathname;
         <p class="bigtext nopdf" set:html={aboutMeLongDesign} />
 
         <div class="imagekeepaspect nopdf">
-            <Picture src={portraitImage} alt="leo schweiger portrait" />
+            <Picture src={portraitImageWide} alt="leo schweiger portrait" />
         </div>
 
         <div class="cols bottom c12 pdf">
