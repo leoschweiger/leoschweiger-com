@@ -1,19 +1,21 @@
 import puppeteer from "puppeteer";
 import path from "path";
-import fs from "fs";
 import { fileURLToPath } from "url";
 import { createServer } from "http";
 import { readFile } from "fs/promises";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(__dirname, "../dist");
-const pdfPathDist = path.join(distDir, "resume-leo-schweiger.pdf");
+
+generatePdf("/about/", "resume-leo-schweiger.pdf", 4322);
+generatePdf("/about-game/", "resume-leo-schweiger-game.pdf", 4323);
+generatePdf("/about-design/", "resume-leo-schweiger-design.pdf", 4324);
 
 // Robust static server
-function serveStatic(port = 4322) {
+function serveStatic(port, page) {
     const server = createServer(async (req, res) => {
         try {
-            let urlPath = req.url === "/" ? "/about/index.html" : req.url;
+            let urlPath = req.url === "/" ? page : req.url;
 
             // If it ends with '/', serve index.html
             if (urlPath.endsWith("/")) {
@@ -49,38 +51,44 @@ function serveStatic(port = 4322) {
     return new Promise((resolve) => server.listen(port, () => resolve(server)));
 }
 
-(async () => {
-    const server = await serveStatic(4322);
-    console.log("🚀 Serving dist/ at http://localhost:4322");
+function generatePdf(pageName, fileName, port) {
 
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
+    (async () => {
 
-    // Point to /about/ route
-    await page.goto("http://localhost:4322/about/", { waitUntil: "networkidle0" });
+        const server = await serveStatic(port, pageName);
+        console.log("🚀 Serving dist/ at http://localhost:4322");
 
-    // Inject print-specific CSS
-    await page.addStyleTag({
-        content: `
-    @media print {
-nav, .footer, .getintouch { display: none !important; }
-    }
-  `
-    });
+        const browser = await puppeteer.launch();
+        const page = await browser.newPage();
 
-    await page.evaluate(() => {
-        document.title = "resume leo schweiger";
-    });
+        // Point to pagename route
+        await page.goto(path.join("http://localhost:4322", pageName), { waitUntil: "networkidle0" });
 
-    await page.pdf({
-        path: pdfPathDist,
-        format: "A4",
-        printBackground: false,
-        scale: 0.8,
-    });
+        // Inject print-specific CSS
+        await page.addStyleTag({
+            content: `
+            @media print {
+                nav, .footer, .getintouch { display: none !important; }
+                }
+                `
+        });
 
-    await browser.close();
-    server.close();
+        await page.evaluate(() => {
+            document.title = "resume leo schweiger";
+        });
 
-    console.log("✅ PDF generated:", pdfPathDist);
-})();
+        const pdfPathDist = path.join(distDir, fileName);
+
+        await page.pdf({
+            path: pdfPathDist,
+            format: "A4",
+            printBackground: false,
+            scale: 0.8,
+        });
+
+        await browser.close();
+        server.close();
+
+        console.log("✅ PDF generated:", pdfPathDist);
+    })();
+}

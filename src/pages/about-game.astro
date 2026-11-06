@@ -1,0 +1,177 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Picture } from "astro:assets";
+import { staticUrl } from "../scripts/config.js";
+import ExperienceEntry from "../components/ExperienceEntry.astro";
+import portraitImage from "../media/portrait-leo-schweiger.webp";
+import { email, links } from "../scripts/config.js";
+import "../styles/about.css";
+
+const aboutMeShortGame =
+    "I’m a game developer focused on creating interesting and fun software.";
+
+const aboutMeLongGame = `I’m a student and game developer based in Salzburg, Austria, focused on creating effective, interesting and fun software. My technical and artistic background allowed me to create multiple <a href="${staticUrl}/games#developed">game projects</a> already.`;
+
+const currentPage = Astro.url.pathname;
+---
+
+<Layout
+    title="about"
+    topId="leo"
+    ogImage={portraitImage.src}
+    ogDesc={aboutMeShortGame}
+>
+    <div class="smallspace pdf"></div>
+    <p class="pdflinks pdf">
+        <a href={`${links["leoschweiger.com"]}${currentPage}`}>
+            www.leoschweiger.com
+        </a>
+        <br />
+        <a href={links[email]}> {email} </a>
+        <br />
+        <a href={links["github"]}> github </a>
+        <br />
+        <a href={links["linked in"]}> linked in </a>
+    </p>
+    <section>
+        <div class="space"></div>
+
+        <h1 class="nopdf">about me</h1>
+
+        <p class="bigtext nopdf" set:html={aboutMeLongGame} />
+
+        <div class="imagekeepaspect nopdf">
+            <Picture src={portraitImage} alt="leo schweiger portrait" />
+        </div>
+
+        <div class="cols bottom c12 pdf">
+            <div class="imagekeepaspect">
+                <Picture src={portraitImage} alt="leo schweiger portrait" />
+            </div>
+            <div class="bigtext">
+                <h1>leo schweiger</h1>
+                <h2>game developer</h2>
+            </div>
+        </div>
+
+        <hr class="pdf" />
+        <hr />
+
+        <div class="cols c12 pdf">
+            <h3 class="">about</h3>
+            <p class="" set:html={aboutMeLongGame + "<br /> <br /> "} />
+        </div>
+
+        <hr />
+
+        <div class="cols c12">
+            <h3 class="">experience</h3>
+
+            <p>
+                <ExperienceEntry
+                    from={2025}
+                    to={2026}
+                    company="Second Stage Studio"
+                    position="game programmer"
+                    companyKind="indie game studio"
+                    link="https://secondstage.studio/"
+                    doing="UI tech, menus, controls & settings for <a href='https://store.steampowered.com/app/4191250/Sprint_City/' target='_blank' rel='noopener noreferrer'>Sprint City</a> in Defold"
+                />
+                <ExperienceEntry
+                    from={2024}
+                    to={2025}
+                    company="Salzburg University of Applied Sciences"
+                    position="tutor"
+                    companyKind="introduction to programming"
+                    link="https://www.fh-salzburg.ac.at/en/study/ct/multimediatechnology-bachelor"
+                    doing="tutoring first semester students in programming basics"
+                />
+                <ExperienceEntry
+                    from={2024}
+                    company="Buffactory Media GmbH"
+                    position="ad creative developer intern"
+                    companyKind="advertising agency"
+                    link="https://buffactory.com/"
+                    doing="designing web advertisements"
+                />
+                <span class="nopdf">
+                    <ExperienceEntry
+                        from={2022}
+                        company="Target Group Publishing GmbH"
+                        position="editorial designer intern"
+                        companyKind="publishing agency"
+                        link="http://www.target-group.at/"
+                        doing="designing layouts for magazines and print advertisements"
+                    />
+                </span>
+                <ExperienceEntry
+                    from={2021}
+                    company="Mediasquad GmbH"
+                    position="VR developer intern"
+                    companyKind="studio for AR/VR apps"
+                    link="https://www.msq.at/"
+                    doing="developing a prototype for a VR puzzle game"
+                />
+                <span class="nopdf">
+                    <ExperienceEntry
+                        from={2020}
+                        company="Spectrum Advertising Agency GmbH"
+                        position="corporate-designer intern"
+                        companyKind="marketing agency"
+                        link="https://www.spectrum.at/"
+                        doing="creating graphics and advertisements"
+                    />
+                </span>
+            </p>
+        </div>
+
+        <hr />
+
+        <div class="cols c12">
+            <h3 class="">education</h3>
+            <p>
+                <ExperienceEntry
+                    from={2026}
+                    to={2028}
+                    company="Salzburg University of Applied Sciences"
+                    position="master program Code and Interactive Systems"
+                    companyKind=""
+                    link="https://www.fh-salzburg.ac.at/studium/ct/code-and-interactive-systems-master"
+                    doing="game & simulation engineering"
+                />
+                <ExperienceEntry
+                    from={2023}
+                    to={2026}
+                    company="Salzburg University of Applied Sciences"
+                    position="bachelor program Code and Interactive Systems"
+                    companyKind=""
+                    link="https://www.fh-salzburg.ac.at/en/study/ct/code-and-interactive-systems-bachelor"
+                    doing="game development and augmented reality"
+                />
+                <ExperienceEntry
+                    from={2017}
+                    to={2022}
+                    company="HTL Bau und Design"
+                    position=""
+                    companyKind="higher vocational school"
+                    link="https://www.htl-ibk.at/"
+                    doing="focusing on graphic-design and marketing"
+                />
+            </p>
+        </div>
+
+        <hr />
+
+        <div class="cols c12">
+            <h3 class="">skills</h3>
+            <p>
+                › proficient in C#, solid experience in C++ and Lua <br />
+                › experienced Unity developer <br />
+                › additional experience with Defold and Unreal Engine <br />
+                › focused on game systems, design, and UI <br />
+                › secondary experience in TypeScript, Python and Go <br />
+            </p>
+        </div>
+        <div class="space pdf"></div>
+    </section>
+</Layout>
